@@ -1,0 +1,11 @@
+* This repository includes various OpenShift / Kubernetes examples
+
+  It is mainly used in workshops regarding OpenShift and Kubernetes
+  basics. Feel free to use the examples in this repository, but do not
+  complain if one of them eats your cat.
+
+** [[file:core-concepts/][Core concepts]]
+
+   Includes basic examples like:
+
+   - creating pods
