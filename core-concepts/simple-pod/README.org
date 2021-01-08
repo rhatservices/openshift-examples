@@ -1,0 +1,32 @@
+* This is a very  simple pod
+
+** Check your current namespace
+
+   Before creating objects in OpenShift or Kubernetes you should check
+   the current namespace that you are using
+
+   #+begin_src sh
+oc project
+   #+end_src
+
+   or with kubectl
+
+   #+begin_src sh
+kubectl config view --minify --output 'jsonpath={..namespace}{"\n"}'
+   #+end_src
+
+** Creating a simple pod
+
+   create the simple pod with
+
+   #+begin_src sh
+oc create -f simple-pod
+  #+end_src
+
+   run
+
+   #+begin_src sh
+oc get pods
+   #+end_src
+
+   to the list of running pods in the current namespace

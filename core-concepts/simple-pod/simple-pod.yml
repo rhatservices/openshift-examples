@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    labels:
+      run: simple-pod
+    name: simple-pod
+  spec:
+    containers:
+    - image: registry.access.redhat.com/ubi8/ubi
+      name: simple-pod
+      command:
+        - sh
+        - -c
+        - 'echo "hello world" && sleep infinity'
