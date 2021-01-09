@@ -1,0 +1,19 @@
+* Configuring applications with configmaps and secrets
+
+  Create the following configmap
+
+  #+begin_src sh
+oc create cm user --from-literal=user=John
+  #+end_src
+
+  Create the following secret
+
+  #+begin_src sh
+oc create secret generic geheim --from-literal=secret=nobody_knows
+  #+end_src
+
+  Start a pod with
+
+  #+begin_src
+oc apply -f pod.yml
+  #+end_src
