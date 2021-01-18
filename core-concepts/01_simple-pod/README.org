@@ -15,7 +15,13 @@ oc project
 kubectl config view --minify --output 'jsonpath={..namespace}{"\n"}'
    #+end_src
 
-** Creating a simple pod
+** Creating a simple pod from the command line
+
+   #+begin_src sh
+oc run -i -t ubi --image=registry.access.redhat.com/ubi8/ubi --restart=Never
+   #+end_src
+
+** Creating a simple pod via a yaml file
 
    create the simple pod with
 
