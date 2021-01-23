@@ -1,0 +1,11 @@
+* Labels and annotations
+
+  #+begin_src
+oc create -f .
+  #+end_src
+
+  #+begin_src
+oc get pods -l app=label-test
+oc get pods -l environment=production
+oc get pods -l 'environment in (production, development)'
+  #+end_src
