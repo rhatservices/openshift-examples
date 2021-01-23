@@ -9,7 +9,7 @@ items:
     name: simple-pod
   spec:
     containers:
-    - image: registry.access.redhat.com/ubi8/ubi
+    - image: registry.redhat.io/ubi8/ubi:8.3
       name: simple-pod
       command:
         - sh

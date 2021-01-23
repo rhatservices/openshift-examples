@@ -5,17 +5,17 @@ items:
   kind: Pod
   metadata:
     labels:
-      run: simple-pod
-    name: simple-pod
+      run: not-so-simple-pod
+    name: not-so-simple-pod
   spec:
     containers:
-    - image: registry.access.redhat.com/ubi8/ubi
+    - image: registry.redhat.io/ubi8/ubi:8.3
       env:
-      - name: USER
+      - name: VARIABLE
         valueFrom:
           configMapKeyRef:
-            name: user
-            key: user
+            name: podenv
+            key: variable
       - name: SECRET
         valueFrom:
           secretKeyRef:
@@ -23,6 +23,22 @@ items:
             key: secret
       name: simple-pod
       command:
-        - sh
-        - -c
-        - 'while true; do echo -e "hello $USER!\n your secret is $SECRET\n\n" && sleep 2; done'
+        - bash
+        - /usr/local/bin/run.sh
+      volumeMounts:
+        - name: run
+          mountPath: "/usr/local/bin/"
+          readOnly: true
+        - name: config
+          mountPath: "/etc/test"
+          readOnly: true
+    volumes:
+    - name: run
+      configMap:
+        name: run
+    - name: config
+      configMap:
+        name: config
+        items:
+        - key: "configuration"
+          path: "config.yml"

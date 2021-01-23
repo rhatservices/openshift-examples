@@ -1,9 +1,11 @@
 * Configuring applications with configmaps and secrets
 
-  Create the following configmap
+  Create the following configmap's
 
   #+begin_src sh
-oc create cm user --from-literal=user=John
+oc create cm run --from-file=run.sh
+oc create cm config --from-file=configuration=mainconfig.yml --from-file=anotherconfig.yml
+oc create cm podenv --from-literal=variable=myvalue
   #+end_src
 
   Create the following secret
@@ -17,3 +19,5 @@ oc create secret generic geheim --from-literal=secret=nobody_knows
   #+begin_src
 oc apply -f pod.yml
   #+end_src
+
+  Take a look at pod.yml and try to understand how it works

@@ -1,16 +1,18 @@
 
 # Table of Contents
 
-1.  [Configuring applications with configmaps and secrets](#org76dc168)
+1.  [Configuring applications with configmaps and secrets](#org257c650)
 
 
-<a id="org76dc168"></a>
+<a id="org257c650"></a>
 
 # Configuring applications with configmaps and secrets
 
-Create the following configmap
+Create the following configmap's
 
-    oc create cm user --from-literal=user=John
+    oc create cm run --from-file=run.sh
+    oc create cm config --from-file=configuration=mainconfig.yml --from-file=anotherconfig.yml
+    oc create cm podenv --from-literal=variable=myvalue
 
 Create the following secret
 
@@ -19,3 +21,5 @@ Create the following secret
 Start a pod with
 
     oc apply -f pod.yml
+
+Take a look at pod.yml and try to understand how it works
