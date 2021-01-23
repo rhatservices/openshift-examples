@@ -1,0 +1,27 @@
+* A full example for exposing an applictation
+
+  In this example we are going to deploy a pod running nginx.
+
+** Step 1: Deploy nginx
+
+   #+begin_src sh
+oc apply -f nginx-deployment.yml
+   #+end_src
+
+   What additional resources does to create?
+
+** Step 2: Scale the deployment to two
+
+   #+begin_src sh
+oc scale --replicas=2 deployment/nginx-deployment
+   #+end_src
+
+   What is the state of the replicaset now?
+
+   How many pods are running?
+
+   #+begin_src sh
+oc delete deployment nginx-deployment
+   #+end_src
+
+   What happens with dependend objects (replicaset, pods)?

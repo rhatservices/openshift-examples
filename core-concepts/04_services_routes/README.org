@@ -1,0 +1,45 @@
+* A full example for exposing an applictation
+
+  In this example we are going to deploy a pod running nginx.
+
+** Step 1: Create a configmap using index.html
+
+   #+begin_src sh
+oc create configmap index --from-file=index.html
+   #+end_src
+
+** Step 2: Create a new deployment using nginx
+
+   #+begin_src sh
+oc apply -f nginx-deployment-cm.yml
+   #+end_src
+
+   What happens with dependend objects (replicaset, pods)?
+
+** Step 3: Create a service for nginx
+
+   #+begin_src sh
+oc apply -f nginx-service.yml
+   #+end_src
+
+   Can you use curl to access the service?
+
+   What happens if you modify the configmap and curl the service again?
+
+** Step 4: Expose the service
+
+   #+begin_src sh
+oc expore svc nginx
+   #+end_src
+
+   What kind of resource gets created?
+
+** Step 5: Expose the service via a SSL edge terminating route
+
+   #+begin_src sh
+oc create route edge ssl-nginx --service=nginx
+   #+end_src
+
+   What kind of resource is created?
+
+   Can you take a look at the details of the resource?
