@@ -14,7 +14,14 @@ oc create configmap index --from-file=index.html
 oc apply -f nginx-deployment-cm.yml
    #+end_src
 
-   What happens with dependend objects (replicaset, pods)?
+   What kind of resource are created?
+
+   Test the deployment with curl and oc port-forward
+
+   #+begin_src sh
+oc port-forward deployment/nginx-deployment 8080:8080
+curl localhost:8080
+   #+end_src
 
 ** Step 3: Create a service for nginx
 
