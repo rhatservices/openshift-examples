@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quota-test
+  labels:
+    app: quota-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quota-test
+  template:
+    metadata:
+      labels:
+        app: quota-test
+    spec:
+      containers:
+        - image: registry.redhat.io/ubi8/ubi:8.3
+          name: test-pod
+          command:
+            - sh
+            - -c
+            - 'echo "hello world" && sleep infinity'
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "64Mi"
+              cpu: "250m
+"
