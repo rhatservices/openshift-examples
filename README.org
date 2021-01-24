@@ -8,4 +8,15 @@
 
    Includes basic examples like:
 
-   - creating pods
+   - [[file:core-concepts/01_simple-pod/][Creating simple pods]]
+   - [[file:core-concepts/02_configmaps-secrets/][Configmaps and secrets]]
+   - [[file:core-concepts/03_deployments/][Working with deployments]]
+   - [[file:core-concepts/04_services_routes/][Services and routes]]
+   - [[file:core-concepts/05_labels/][Working with labels]]
+   - [[file:core-concepts/06_probes/][Liveness and readyness probes]]
+   - [[file:core-concepts/07_limits_quotas/][Limits and quotas]]
+   - [[file:core-concepts/08_pod-disruption/][Pod disruption budgets]]
+
+** [[file:advanced-concepts/][Advanced topics]]
+
+   - [[file:advanced-concepts/01_kustomize/][Kustomize]]
