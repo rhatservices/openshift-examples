@@ -1,0 +1,25 @@
+* Kustomize basics
+
+  Apply the base application
+
+  #+begin_src sh
+oc apply -k base/
+  #+end_src
+
+  Use curl to test the deployed nginx instance
+
+  #+begin_src sh
+curl nginx-nginx.apps.ocp.lan.stderr.at
+  #+end_src
+
+** Overlays
+
+   Apply the overlay hello-conschul
+
+   #+begin_src sh
+oc apply -k overlays/hello-consul/
+   #+end_src
+
+   What is the status of the nginx pods?
+
+   What happens if you use curl to test the application again?
