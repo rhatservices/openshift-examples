@@ -3,9 +3,7 @@ kind: Route
 metadata:
   annotations:
   name: nginx
-  namespace: nginx
 spec:
-  host: nginx-nginx.apps.ocp.lan.stderr.at
   port:
     targetPort: 8080
   to:
