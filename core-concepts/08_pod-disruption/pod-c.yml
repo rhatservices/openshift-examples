@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: label-test
+    environment: development
+  name: pod-c
+spec:
+  affinity:
+    podAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: environment
+              operator: In
+              values:
+              - production
+          topologyKey: kubernetes.io/hostname
+  containers:
+  - image: registry.redhat.io/ubi8/ubi:8.3
+    name: pod-c
+    command:
+      - sh
+      - -c
+      - 'echo "hello world" && sleep infinity'

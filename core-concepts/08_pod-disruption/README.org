@@ -1,0 +1,49 @@
+* Pod affinity and anti-affinity
+
+  Deploy a sample pod
+
+  #+begin_src
+oc create -f pod-a.yml
+  #+end_src
+
+  Check the affinity rules of pod-b and deploy the pod
+
+  #+begin_src
+oc create -f pod-b.yml
+  #+end_src
+
+  Should be pod be running on the same or on a different node than pod-a?
+
+  Check pod placement
+
+  #+begin_src sh
+oc get pods -o wide
+  #+end_src
+
+  Check the affinity rules of pod-c and deploy the depod
+
+  #+begin_src sh
+oc create -f pod-c.yml
+  #+end_src
+
+  Should be pod be running on the same or on a different node than pod-a?
+
+  Check pod placement
+
+  #+begin_src sh
+oc get pods -o wide
+  #+end_src
+
+* Pod disruption budget
+
+  Create the sample pod disruption budget
+
+  #+begin_src sh
+oc create -f pdb.yml
+  #+end_src
+
+  Check the status of the pod disruption budget
+
+  #+begin_src sh
+oc describe pdb example-pdb
+  #+end_src
