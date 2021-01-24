@@ -1,0 +1,40 @@
+* Creating a sealed secret
+
+  Take a look at the [[file:plain_secret.yml][plain_secret.yml]] file. Can you decode the secret?
+
+  Create a sealed secret with [[file:plain_secret.yml][plain_secret.yml]] as input
+
+  #+begin_src sh
+kubeseal <plain_secret.yml > sealed_secret.json
+  #+end_src
+
+  Create the sealed secret in the cluster
+
+  #+begin_src sh
+oc create -f sealed_secret.json
+  #+end_src
+
+  List the current secrets and seleadsecrets.
+
+  #+begin_src
+oc get secrets
+oc get sealedsecrets
+  #+end_src
+
+  Why do we have a standard K8s secret with the same name?
+
+** Understanding scopes
+
+   What is the default scope of a seal secret?
+
+   Change the namespace name in the [[file:sealed_secret.json][sealed_secret.json]] (_.metadata.name_ and _.spec.template.metadata.name_).
+
+   Create the sealed secret with the changed namespace name
+
+   #+begin_src sh
+oc create -f sealed_secret.json
+   #+end_src
+
+   What happens to the secret?
+
+   What is the state of the sealed secrets?
