@@ -1,17 +1,14 @@
 apiVersion: v1
 kind: Pod
-items:
-- apiVersion: v1
-  kind: Pod
-  metadata:
-    labels:
-      run: curl-pod
+metadata:
+  labels:
+    run: curl-pod
+  name: curl-pod
+spec:
+  containers:
+  - image: registry.redhat.io/ubi8/ubi:8.3
     name: curl-pod
-  spec:
-    containers:
-    - image: registry.redhat.io/ubi8/ubi:8.3
-      name: curl-pod
-      command:
-        - sh
-        - -c
-        - 'while /bin/true; do curl http://nginx.conschul-rh.svc.cluster.local:8080; sleep 1; done'
+    command:
+      - sh
+      - -c
+      - 'while /bin/true; do curl http://nginx.conschul-rh.svc.cluster.local:8080; sleep 1; done'
