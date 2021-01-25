@@ -33,17 +33,3 @@ oc create -f pod-c.yml
   #+begin_src sh
 oc get pods -o wide
   #+end_src
-
-* Pod disruption budget
-
-  Create the sample pod disruption budget
-
-  #+begin_src sh
-oc create -f pdb.yml
-  #+end_src
-
-  Check the status of the pod disruption budget
-
-  #+begin_src sh
-oc describe pdb example-pdb
-  #+end_src
