@@ -1,0 +1,21 @@
+* Projects and namespaces
+
+  Take a look at you current namespaces/project
+
+  #+begin_src
+oc status
+  #+end_src
+
+  Which project are you currently using?
+
+  Are there any annotation on your project?
+
+  #+begin_src sh
+oc describe project <project name>
+  #+end_src
+
+  What is the difference to a namespace?
+
+  #+begin_src
+oc describe ns <namespace>
+  #+end_src
