@@ -1,1 +1,2 @@
 argocd login --sso argocd.apps.ocp-test.sv-services.at
+argocd app create example-app --project conschul --repo https://gitlab.seu.sozvers.at/CDPOPS/CONSCHUL/openshift-examples.git --revision main --path advanced-concepts/01_argocd/application --dest-server https://kubernetes.default.svc --dest-namespace conschul-rh
