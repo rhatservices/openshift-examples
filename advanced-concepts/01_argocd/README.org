@@ -1,0 +1,1 @@
+argocd login --sso argocd.apps.ocp-test.sv-services.at
