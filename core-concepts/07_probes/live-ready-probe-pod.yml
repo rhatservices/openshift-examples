@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: goproxy
+  name: tcp-live-ready
   labels:
-    app: goproxy
+    app: tcp-live-ready
 spec:
   containers:
-  - name: goproxy
+  - name: tcp-live-ready
     image: nginxinc/nginx-unprivileged:1.18
     ports:
     - containerPort: 8080

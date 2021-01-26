@@ -10,7 +10,7 @@ spec:
     image: nginxinc/nginx-unprivileged:1.18
     livenessProbe:
       httpGet:
-        path: /hello
+        path: /
         port: 8080
         httpHeaders:
         - name: Custom-Header

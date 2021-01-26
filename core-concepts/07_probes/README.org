@@ -1,0 +1,64 @@
+* Liveness and readyness probes
+
+** liveness probe in action
+
+  Take a look at the pod definition of [[file:liveness-pod.yml][liveness-pod.yml]]
+
+  What do you expect if you delete _/tmp/healthy_?
+
+  Create the pod with
+
+  #+begin_src sh
+oc create -f liveness-pod.yml
+  #+end_src
+
+  Look at the pod status especially the liveness check via
+
+  #+begin_src sh
+oc describe pod liveness-exec
+  #+end_src
+
+  What will happen if you delete /tmp/healthy?
+
+  #+begin_src sh
+oc exec liveness-exec -- rm /tmp/healthy
+  #+end_src
+
+  Look at the pod status
+
+  #+begin_src sh
+oc descibe pod liveness-exec
+  #+end_src
+
+
+** liveness and readyness tcp probe
+
+   Create a pod that implementes a TCP liveness and readiness probe
+
+   #+begin_src sh
+oc create -f live-ready-probe-pod.yml
+   #+end_src
+
+   Describe the pod status
+
+   #+begin_src sh
+oc describe pod tcp-live-ready
+   #+end_src
+
+   Does the status change over time?
+
+** http probes
+
+   Create a pod implementing HTTP based probes
+
+   #+begin_src sh
+oc create -f http-probe-pod.yml
+   #+end_src
+
+   What is the status of the pods
+
+   #+begin_src
+oc describe pod liveness-http
+   #+end_src
+
+   Can you fix the pod?
