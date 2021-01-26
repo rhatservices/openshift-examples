@@ -1,29 +1,29 @@
 
 # Table of Contents
 
-1.  [A full example for exposing an applictation](#org8f90555)
-    1.  [Step 1: Create a configmap using index.html](#org2aac846)
-    2.  [Step 2: Create a new deployment using nginx](#org5998ebb)
-    3.  [Step 3: Create a service for nginx](#org357a77a)
-    4.  [Step 4: Expose the service](#org0d0ec76)
-    5.  [Step 5: Expose the service via a SSL edge terminating route](#orgab4d869)
+1.  [A full example for exposing an applictation](#orgefe39d1)
+    1.  [Step 1: Create a configmap using index.html](#orgfd107fc)
+    2.  [Step 2: Create a new deployment using nginx](#orgde24ab2)
+    3.  [Step 3: Create a service for nginx](#orgb70155a)
+    4.  [Step 4: Expose the service](#orgd23b33b)
+    5.  [Step 5: Expose the service via a SSL edge terminating route](#orgaffbc8c)
 
 
-<a id="org8f90555"></a>
+<a id="orgefe39d1"></a>
 
 # A full example for exposing an applictation
 
 In this example we are going to deploy a pod running nginx.
 
 
-<a id="org2aac846"></a>
+<a id="orgfd107fc"></a>
 
 ## Step 1: Create a configmap using index.html
 
     oc create configmap index --from-file=index.html
 
 
-<a id="org5998ebb"></a>
+<a id="orgde24ab2"></a>
 
 ## Step 2: Create a new deployment using nginx
 
@@ -37,7 +37,7 @@ Test the deployment with curl and oc port-forward
     curl localhost:8080
 
 
-<a id="org357a77a"></a>
+<a id="orgb70155a"></a>
 
 ## Step 3: Create a service for nginx
 
@@ -48,16 +48,16 @@ Can you use curl to access the service?
 What happens if you modify the configmap and curl the service again?
 
 
-<a id="org0d0ec76"></a>
+<a id="orgd23b33b"></a>
 
 ## Step 4: Expose the service
 
-    oc expore svc nginx
+    oc expose svc nginx
 
 What kind of resource gets created?
 
 
-<a id="orgab4d869"></a>
+<a id="orgaffbc8c"></a>
 
 ## Step 5: Expose the service via a SSL edge terminating route
 

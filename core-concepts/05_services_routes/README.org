@@ -36,7 +36,7 @@ oc apply -f nginx-service.yml
 ** Step 4: Expose the service
 
    #+begin_src sh
-oc expore svc nginx
+oc expose svc nginx
    #+end_src
 
    What kind of resource gets created?
