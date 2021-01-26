@@ -1,2 +1,17 @@
-argocd login --sso argocd.apps.ocp-test.sv-services.at
-argocd app create example-app --project conschul --repo https://gitlab.seu.sozvers.at/CDPOPS/CONSCHUL/openshift-examples.git --revision main --path advanced-concepts/01_argocd/application --dest-server https://kubernetes.default.svc --dest-namespace conschul-rh
+* ArgoCD
+
+  Login to ArgoCD
+
+  #+begin_src
+argocd login --sso <argo url>
+  #+end_src
+
+  Create an example application within ArgoCD
+
+  #+begin_src
+argocd app create example-app --project <project name> --repo <gitlab url>/openshift-examples.git --revision main --path advanced-concepts/01_argocd/application --dest-server https://kubernetes.default.svc --dest-namespace <namespace>
+  #+end_src
+
+  What is the state of the ArgoCD application after creating the new app?
+
+  Can you synchronize the app?
