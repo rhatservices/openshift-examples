@@ -7,8 +7,13 @@ metadata:
 spec:
   containers:
   - image: registry.redhat.io/ubi8/ubi:8.3
+    env:
+      - name: MY_NAMESPACE_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.namespace
     name: curl-pod
     command:
       - sh
       - -c
-      - 'while /bin/true; do curl http://nginx.conschul-rh.svc.cluster.local:8080; sleep 1; done'
+      - 'while /bin/true; do curl http://nginx."$MY_NAMESPACE_NAME".svc.cluster.local:8080; sleep 1; done'
