@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: advanced-pod
+  name: advanced-pod
+spec:
+  containers:
+  - image: registry.redhat.io/ubi8/ubi:8.3
+    name: container1
+    command:
+      - sh
+      - -c
+      - 'echo "hello container1" && sleep infinity'
+  - image: registry.redhat.io/ubi8/ubi:8.3
+    name: container2
+    command:
+      - sh
+      - -c
+      - 'echo "hello container2" && sleep infinity'
