@@ -1,8 +1,12 @@
 * Labels and annotations
 
+  Create pods from all pod definitions in this folder
+
   #+begin_src
 oc create -f .
   #+end_src
+
+  Query pods based on their labels
 
   #+begin_src
 oc get pods -l app=label-test
@@ -10,10 +14,14 @@ oc get pods -l environment=production
 oc get pods -l 'environment in (production, development)'
   #+end_src
 
+  Annotate a pod
+
   #+begin_src
 oc annotate pod pod-a foo=bar
 oc describe pod pod-a
   #+end_src
+
+  Try to query the via the annotation
 
   #+begin_src
 oc get pods -l foo=bar

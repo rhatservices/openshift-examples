@@ -12,7 +12,7 @@ oc create -f pod-a.yml
 oc create -f pod-b.yml
   #+end_src
 
-  Should be pod be running on the same or on a different node than pod-a?
+  Should the pod be running on the same or on a different node than pod-a?
 
   Check pod placement
 
@@ -26,7 +26,7 @@ oc get pods -o wide
 oc create -f pod-c.yml
   #+end_src
 
-  Should be pod be running on the same or on a different node than pod-a?
+  Should the pod be running on the same or on a different node than pod-a?
 
   Check pod placement
 

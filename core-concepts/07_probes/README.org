@@ -9,7 +9,7 @@
   Create the pod with
 
   #+begin_src sh
-oc create -f liveness-pod.yml
+oc create -f liveness-exec-pod.yml
   #+end_src
 
   Look at the pod status especially the liveness check via
