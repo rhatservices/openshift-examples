@@ -20,6 +20,14 @@ curl nginx-nginx.apps.ocp.lan.stderr.at
 oc apply -k overlays/hello-consul/
    #+end_src
 
+   Does this work?
+
+   Try do create the resources with kustomize:
+
+   #+begin_src sh
+kustomize build overlays/hello-conschul/
+   #+end_src
+
    What is the status of the nginx pods?
 
    What happens if you use curl to test the application again?
