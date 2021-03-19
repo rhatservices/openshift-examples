@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-deployment-2
+  labels:
+    app: simple-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-2
+  template:
+    metadata:
+      labels:
+        app: simple-2
+        environment: production
+    spec:
+      containers:
+      - image: registry.redhat.io/ubi8/ubi:8.3
+        name: simple-pod-2
+        command:
+        - sh
+        - -c
+        - 'echo "hello world" && sleep infinity'

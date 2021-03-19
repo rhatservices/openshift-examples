@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-scheduleable
+  labels:
+    app: simple
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple
+  template:
+    metadata:
+      labels:
+        app: simple
+        environment: production
+    spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: box
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app: simple
+      containers:
+      - image: registry.redhat.io/ubi8/ubi:8.3
+        name: simple-pod
+        command:
+        - sh
+        - -c
+        - 'echo "hello world" && sleep infinity'
