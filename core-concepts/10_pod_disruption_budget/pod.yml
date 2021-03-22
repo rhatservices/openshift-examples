@@ -7,11 +7,11 @@ items:
     labels:
       app: backend
       environment: production
-    name: pod-a
+    name: pod
   spec:
     containers:
     - image: registry.redhat.io/ubi8/ubi:8.3
-      name: pod-a
+      name: pod
       command:
         - sh
         - -c

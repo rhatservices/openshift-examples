@@ -2,13 +2,13 @@
 
   In this example we are going to deploy a pod running nginx.
 
-** Step 1: Create a configmap using index.html
+** Create a configmap using index.html
 
    #+begin_src sh
 oc create configmap index --from-file=index.html
    #+end_src
 
-** Step 2: Create a new deployment using nginx
+** Create a new deployment using nginx
 
    #+begin_src sh
 oc apply -f nginx-deployment-cm.yml
@@ -19,11 +19,11 @@ oc apply -f nginx-deployment-cm.yml
    Test the deployment with curl and oc port-forward
 
    #+begin_src sh
-oc port-forward deployment/nginx-deployment 8080:8080
+oc port-forward deployment/nginx-deployment 80<conschul-id>:8080
 curl localhost:8080
    #+end_src
 
-** Step 3: Create a service for nginx
+** Create a service for nginx
 
    #+begin_src sh
 oc apply -f nginx-service.yml
@@ -37,9 +37,7 @@ oc create -f curl-pod.yml
 
    What happens if you modify the configmap and curl the service again?
 
-
-
-** Step 4: Expose the service
+** Expose the service
 
    #+begin_src sh
 oc expose svc nginx
@@ -47,13 +45,31 @@ oc expose svc nginx
 
    What kind of resource gets created?
 
+   #+begin_src sh
+oc get route
+   #+end_src
 
-** Step 5: Expose the service via a SSL edge terminating route
+** Expose the service via a SSL edge terminating route
 
    #+begin_src sh
-oc create route edge ssl-nginx --service=nginx
+oc create route edge nginx-ssl --service=nginx
    #+end_src
 
    What kind of resource is created?
 
    Can you take a look at the details of the resource?
+
+   #+begin_src sh
+oc get route
+   #+end_src
+
+** Cleanup
+
+   Delete all resources created:
+
+   #+begin_src sh
+oc delete deployment nginx-deployment
+oc delete pod curl-pod
+oc delete route nginx nginx-ssl
+oc delete svc nginx
+   #+end_src

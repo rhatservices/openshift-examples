@@ -9,16 +9,19 @@
 oc project
    #+end_src
 
-   or with kubectl
-
-   #+begin_src sh
-kubectl config view --minify --output 'jsonpath={..namespace}{"\n"}'
-   #+end_src
-
 ** Creating a simple pod from the command line
 
    #+begin_src sh
-oc run -i -t ubi --image=registry.access.redhat.com/ubi8/ubi --restart=Never
+oc run -i -t ubi --image=registry.redhat.io/ubi8/ubi:8.3 --restart=Never
+   #+end_src
+
+   -i ... run interactivly
+   -t ... allocate a terminal
+
+   When finished delete the pod with
+
+   #+begin_src
+oc delete pod ubi
    #+end_src
 
 ** Creating a simple pod via a yaml file
@@ -26,7 +29,7 @@ oc run -i -t ubi --image=registry.access.redhat.com/ubi8/ubi --restart=Never
    create the simple pod with
 
    #+begin_src sh
-oc create -f simple-pod
+oc create -f simple-pod.yml
   #+end_src
 
    run
@@ -35,4 +38,20 @@ oc create -f simple-pod
 oc get pods
    #+end_src
 
-   to the list of running pods in the current namespace
+   to the list of running pods in the current namespace.
+
+** A pod running two containers
+
+   Take a look at advanced-pod.yml. Explain what you see.
+
+   #+begin_src sh
+oc create -f advanced-pod.yml
+  #+end_src
+
+   run
+
+   #+begin_src sh
+oc get pods
+   #+end_src
+
+   to the list of running pods in the current namespace.

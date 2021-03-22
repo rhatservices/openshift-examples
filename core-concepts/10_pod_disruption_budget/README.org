@@ -11,3 +11,22 @@ oc create -f pdb.yml
   #+begin_src sh
 oc describe pdb example-pdb
   #+end_src
+
+  Create an example pod with a label of environment=production
+
+  #+begin_src
+oc create -f pod.yml
+  #+end_src
+
+  Check the status of the pod disruption budget
+
+  #+begin_src sh
+oc describe pdb example-pdb
+  #+end_src
+
+** Cleanup
+
+   #+begin_src
+oc delete pod pod
+oc delete pdb example-pdb
+   #+end_src

@@ -18,6 +18,7 @@ $0: $0 <old image URL> <new image URL>"
 
 $0 will replace all <old image URL> used in this repo with <new image URL>
 EOF
+    exit 1
 }
 
 [ -z "$OLD_IMAGE" ] && usage

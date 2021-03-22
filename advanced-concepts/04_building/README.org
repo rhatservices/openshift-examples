@@ -1,5 +1,7 @@
 * Building application with OpenShift
 
+  XXX This does not work currently XXX
+
   We create a _very_ simple quarkus (java) application that we would
   like to build with the help of openshift.
 

@@ -3,10 +3,10 @@ kind: Pod
 metadata:
   labels:
     test: liveness
-  name: liveness-http
+  name: http-probe
 spec:
   containers:
-  - name: liveness
+  - name: http-probe
     image: nginxinc/nginx-unprivileged:1.18
     livenessProbe:
       httpGet:

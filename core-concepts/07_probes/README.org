@@ -18,10 +18,10 @@ oc create -f liveness-exec-pod.yml
 oc describe pod liveness-exec
   #+end_src
 
-  What will happen if you delete /tmp/healthy?
+  What do you expect will happen after 30 seconds?
 
-  #+begin_src sh
-oc exec liveness-exec -- rm /tmp/healthy
+    #+begin_src sh
+oc describe pod liveness-exec
   #+end_src
 
   Look at the pod status
@@ -30,19 +30,18 @@ oc exec liveness-exec -- rm /tmp/healthy
 oc descibe pod liveness-exec
   #+end_src
 
-
 ** liveness and readyness tcp probe
 
    Create a pod that implementes a TCP liveness and readiness probe
 
    #+begin_src sh
-oc create -f live-ready-probe-pod.yml
+oc create -f tcp-probe-pod.yml
    #+end_src
 
    Describe the pod status
 
    #+begin_src sh
-oc describe pod tcp-live-ready
+oc describe pod tcp-probe
    #+end_src
 
    Does the status change over time?
@@ -58,7 +57,14 @@ oc create -f http-probe-pod.yml
    What is the status of the pods
 
    #+begin_src
-oc describe pod liveness-http
+oc describe pod http-probe
    #+end_src
 
    Can you fix the pod?
+
+** Cleanup
+
+   #+begin_src
+oc delete pod liveness-exec tcp-probe http-probe
+
+   #+end_src

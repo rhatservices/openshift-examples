@@ -4,6 +4,11 @@
   basics. Feel free to use the examples in this repository, but do not
   complain if one of them eats your cat.
 
+  Exapmles are implemented using
+
+  - registry.redhat.io/ubi8/ubi:8.3 and
+  -
+
 ** [[file:core-concepts/][Core concepts]]
 
    Includes basic examples like:

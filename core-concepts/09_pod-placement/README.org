@@ -33,3 +33,9 @@ oc create -f pod-c.yml
   #+begin_src sh
 oc get pods -o wide
   #+end_src
+
+** Cleanup
+
+   #+begin_src
+oc delete pod-a pod-b pod-c
+   #+end_src

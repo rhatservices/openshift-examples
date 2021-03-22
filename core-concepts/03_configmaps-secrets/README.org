@@ -17,7 +17,17 @@ oc create secret generic geheim --from-literal=secret=nobody_knows
   Start a pod with
 
   #+begin_src
-oc apply -f pod.yml
+oc apply -f not-so-simple-pod.yml
   #+end_src
 
   Take a look at pod.yml and try to understand how it works
+
+** cleanup
+
+   Delete all resource after finishing
+
+   #+begin_src
+oc delete pod not-so-simple-pod
+oc delete cm run config podenv
+oc delete secret geheim
+   #+end_src
