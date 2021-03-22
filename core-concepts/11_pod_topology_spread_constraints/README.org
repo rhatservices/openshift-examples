@@ -1,0 +1,60 @@
+* Pod Topology Spread Constraints
+
+** Prerequisites
+
+   You need to label 2 nodes of you cluster with a label called
+   _testdomain_.  This is going to be our example topology key.
+
+   For example:
+
+   #+begin_src sh
+oc label node worker01 testdomain=A
+oc label node worker02 testdomain=B
+   #+end_src
+
+** Using _whenUnsatisfiable_ _ScheduleAnyway_
+
+  Create a deployment with _whenUnsatisfiable_ is set to _ScheduleAnyway_
+
+  #+begin_src sh
+oc create -f deployment_schedule.yml
+  #+end_src
+
+  What is the state of the pods after the deployments succeeds?
+
+  #+begin_src sh
+oc get pods
+  #+end_src
+
+  Shut down one of the nodes and check the status of the pods again.
+  What happend to the pods?
+
+  Remove the deployment
+
+  #+begin_src sh
+oc delete deployment deployment-schedule
+  #+end_src
+
+
+** Using _whenUnsatisfiable_ _DoNotSchedule_
+
+  Create a deployment with _whenUnsatisfiable_ is set to _ScheduleAnyway_
+
+  #+begin_src sh
+oc create -f deployment_noschedule.yml
+  #+end_src
+
+  What is the state of the pods after the deployments succeeds?
+
+  #+begin_src sh
+oc get pods
+  #+end_src
+
+  Shut down one of the nodes and check the status of the pods again.
+  What happend to the pods?
+
+  Remove the deployment
+
+  #+begin_src sh
+oc delete deployment deployment-schedule
+  #+end_src

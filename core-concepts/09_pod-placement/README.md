@@ -1,11 +1,11 @@
 
 # Table of Contents
 
-1.  [Pod affinity and anti-affinity](#org45c19b0)
-2.  [Pod disruption budget](#org02f4a1a)
+1.  [Pod affinity and anti-affinity](#orga2e4237)
+    1.  [Cleanup](#org6ced2bf)
 
 
-<a id="org45c19b0"></a>
+<a id="orga2e4237"></a>
 
 # Pod affinity and anti-affinity
 
@@ -17,7 +17,7 @@ Check the affinity rules of pod-b and deploy the pod
 
     oc create -f pod-b.yml
 
-Should be pod be running on the same or on a different node than pod-a?
+Should the pod be running on the same or on a different node than pod-a?
 
 Check pod placement
 
@@ -27,21 +27,15 @@ Check the affinity rules of pod-c and deploy the depod
 
     oc create -f pod-c.yml
 
-Should be pod be running on the same or on a different node than pod-a?
+Should the pod be running on the same or on a different node than pod-a?
 
 Check pod placement
 
     oc get pods -o wide
 
 
-<a id="org02f4a1a"></a>
+<a id="org6ced2bf"></a>
 
-# Pod disruption budget
+## Cleanup
 
-Create the sample pod disruption budget
-
-    oc create -f pdb.yml
-
-Check the status of the pod disruption budget
-
-    oc describe pdb example-pdb
+    oc delete pod-a pod-b pod-c

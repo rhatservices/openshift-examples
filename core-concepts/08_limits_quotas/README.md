@@ -1,17 +1,17 @@
 
 # Table of Contents
 
-1.  [Working with quotas and limitranges](#org46e3f07)
-    1.  [Quotas](#org7253142)
-    2.  [LimitRange](#orgc7be54c)
+1.  [Working with quotas and limitranges](#orge12e353)
+    1.  [Quotas](#org9fc80ae)
+    2.  [LimitRange](#orgc935934)
 
 
-<a id="org46e3f07"></a>
+<a id="orge12e353"></a>
 
 # Working with quotas and limitranges
 
 
-<a id="org7253142"></a>
+<a id="org9fc80ae"></a>
 
 ## Quotas
 
@@ -64,7 +64,7 @@ In which quality of service class is the pod running and why is it using that pa
     oc get pod -o jsonpath='qosClass: {.status.qosClass}{"\n"}' <pod>
 
 
-<a id="orgc7be54c"></a>
+<a id="orgc935934"></a>
 
 ## LimitRange
 
