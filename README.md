@@ -1,12 +1,12 @@
 
 # Table of Contents
 
-1.  [This repository includes various OpenShift / Kubernetes examples](#orgd99420e)
-    1.  [Core concepts](#orgc629042)
-    2.  [Advanced topics](#org0e4cf34)
+1.  [This repository includes various OpenShift / Kubernetes examples](#orgceaae4f)
+    1.  [Core concepts](#org4986379)
+    2.  [Advanced topics](#orge701d41)
 
 
-<a id="orgd99420e"></a>
+<a id="orgceaae4f"></a>
 
 # This repository includes various OpenShift / Kubernetes examples
 
@@ -20,7 +20,7 @@ Exapmles are implemented using
 -
 
 
-<a id="orgc629042"></a>
+<a id="org4986379"></a>
 
 ## [Core concepts](core-concepts/)
 
@@ -38,10 +38,11 @@ Includes basic examples like:
 -   [Pod disruption budgets](core-concepts/10_pod_disruption_budget/)
 
 
-<a id="org0e4cf34"></a>
+<a id="orge701d41"></a>
 
 ## [Advanced topics](advanced-concepts/)
 
--   [Kustomize](advanced-concepts/01_kustomize/)
--   [Sealed secrets](advanced-concepts/02_sealed_secrets/)
--   [Building images](advanced-concepts/03_building/)
+-   [ArgoCD](advanced-concepts/01_argocd)
+-   [Kustomize](advanced-concepts/02_kustomize/)
+-   [Sealed secrets](advanced-concepts/03_sealed_secrets/)
+-   [Building images](advanced-concepts/04_building/)

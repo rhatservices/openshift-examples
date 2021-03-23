@@ -26,6 +26,7 @@
 
 ** [[file:advanced-concepts/][Advanced topics]]
 
-   - [[file:advanced-concepts/01_kustomize/][Kustomize]]
-   - [[file:advanced-concepts/02_sealed_secrets/][Sealed secrets]]
-   - [[file:advanced-concepts/03_building/][Building images]]
+   - [[file:advanced-concepts/01_argocd][ArgoCD]]
+   - [[file:advanced-concepts/02_kustomize/][Kustomize]]
+   - [[file:advanced-concepts/03_sealed_secrets/][Sealed secrets]]
+   - [[file:advanced-concepts/04_building/][Building images]]
