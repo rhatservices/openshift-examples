@@ -1,0 +1,24 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    build: nginx-build
+  name: nginx-build
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: nginx-build:latest
+  runPolicy: Serial
+  source:
+    git:
+      uri: https://github.com/rhatservices/openshift-examples
+    contextDir: advanced-concepts/04_building/docker/nginx
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  successfulBuildsHistoryLimit: 5
