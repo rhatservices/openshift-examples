@@ -23,6 +23,7 @@
    - [[file:core-concepts/08_limits_quotas/][Limits and quotas]]
    - [[file:core-concepts/09_pod-placement][Pod placement]]
    - [[file:core-concepts/10_pod_disruption_budget/][Pod disruption budgets]]
+   - [[file:core-concepts/11_pod_topology_spread_constraints/][Pod Topology Spread Constraints]]
 
 ** [[file:advanced-concepts/][Advanced topics]]
 
