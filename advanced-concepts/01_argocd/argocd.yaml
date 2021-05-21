@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ArgoCD
+metadata:
+  annotations:
+  name: argocd
+spec:
+  grafana:
+    enabled: false
+    route:
+      enabled: true
+  prometheus:
+    enabled: false
+    route:
+      enabled: true
+  rbac:
+    defaultPolicy: role:readonly
+    policy: |
+      g, system:cluster-admins, role:admin
+    scopes: '[email,groups]'
+  server:
+    route:
+      enabled: true
+  version: v2.0.2

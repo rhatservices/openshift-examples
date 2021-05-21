@@ -1,10 +1,38 @@
 * ArgoCD
 
-  Login to ArgoCD
+** Create an ArgoCD instance in your project and try to login
 
-  #+begin_src
-argocd login --sso <argo url>
-  #+end_src
+   First we create a new ArgoCD instance in our namespace.
+
+   Make sure you are in the correct namespace before executing this command!
+
+   #+begin_src sh
+oc apply -f argocd.yml
+   #+end_src
+
+   Extract the admin password and the route and login to ArgoCD
+
+   #+begin_src sh
+export ARGOCD_PASSWORD=$(oc get secrets -o jsonpath="{.data['admin\.password']}" argocd-cluster |base64 -d)
+export ARGOCD_ROUTE=$(oc get route -o yaml argocd-server -o jsonpath={.spec.host})
+
+argocd  login --insecure --username admin --password "$ARGOCD_PASSWORD"  "$ARGOCD_ROUTE"
+   #+end_src
+
+   Try to list the available projects:
+
+   #+begin_src sh
+argocd proj list
+   #+end_src
+
+   ArgoCD also support SSO authentication via Keycloak, see
+   https://docs.openshift.com/container-platform/4.7/cicd/gitops/configuring-sso-for-argo-cd-on-openshift.html
+   for more information.
+
+   Another method of authentication is using ArgoCD [[https://www.openshift.com/blog/openshift-authentication-integration-with-argocd][DEX]]. Be aware that
+   this is *not* supported by Red Hat.
+
+**  Deploying a simple application
 
   Create an example application within ArgoCD
 
