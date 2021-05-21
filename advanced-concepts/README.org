@@ -1,6 +1,10 @@
+* bash completion
+
+  ...
+
 * Prerequisites for the advanced examples
 
-  - Installation of the OpenShift GitOps operator and the ArgoCD binary
+** Installation of the OpenShift GitOps operator and the ArgoCD binary
 
     #+begin_src yaml
 apiVersion: operators.coreos.com/v1alpha1
@@ -20,7 +24,7 @@ curl -O https://github.com/argoproj/argo-cd/releases/download/v2.0.2/argocd-linu
 sudo install -m 755 argocd-linux-amd64 /usr/local/bin/argocd
   #+end_src
 
-  - Installation of Bitnami Sealed Secrets and kubeseal
+** Installation of Bitnami Sealed Secrets and kubeseal
 
     #+begin_src
 oc apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.16.0/controller.yaml
@@ -31,7 +35,31 @@ wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.16.0/ku
 sudo install -m 755 kubeseal /usr/local/bin/kubeseal
     #+end_src
 
-  - Installation of kustomize
+    Create a required ClusterRole
+
+    #+begin_src yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+  name: sealedsecrets-edit
+rules:
+- apiGroups:
+  - bitnami.com
+  resources:
+  - sealedsecrets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - patch
+  - update
+  - delete
+    #+end_src
+
+** Installation of kustomize
 
     #+begin_src
 curl -O - https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.9.4/kustomize_v3.9.4_linux_amd64.tar.gz

@@ -1,0 +1,105 @@
+* Building applications with OpenShift
+
+  We created a _very_ simple Quarkus (java) application that we would
+  like to build with the help of OpenShift. The application provides a rest endpoint
+  for listing pod objects.
+
+  Execute the following command:
+
+  #+begin_src sh
+oc new-app quay.io/quarkus/ubi-quarkus-native-s2i:20.3-java11~https://github.com/rhatservices/openshift-quarkus-example.git
+  #+end_src
+
+  Closely watch the generated output:
+
+  #+begin_src
+--> Found container image a9937ea (4 weeks old) from registry.access.redhat.com for "registry.access.redhat.com/ubi8/openjdk-11"
+
+    Java Applications
+    -----------------
+    Platform for building and running plain Java applications (fat-jar and flat classpath)
+
+    Tags: builder, java
+
+    * An image stream tag will be created as "openjdk-11:latest" that will track the source image
+    * A source build using source code from https://github.com/rhatservices/openshift-quarkus-example.git will be created
+      * The resulting image will be pushed to image stream tag "openshift-quarkus-example:latest"
+      * Every time "openjdk-11:latest" changes a new build will be triggered
+
+--> Creating resources ...
+    imagestream.image.openshift.io "openjdk-11" created
+    imagestream.image.openshift.io "openshift-quarkus-example" created
+    buildconfig.build.openshift.io "openshift-quarkus-example" created
+    deployment.apps "openshift-quarkus-example" created
+    service "openshift-quarkus-example" created
+--> Success
+    Build scheduled, use 'oc logs -f buildconfig/openshift-quarkus-example' to track its progress.
+    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
+     'oc expose service/openshift-quarkus-example'
+    Run 'oc status' to view your app.
+  #+end_src
+
+  You can see the current builds with
+
+  #+begin_src sh
+oc get builds
+  #+end_src
+
+  Details are available with
+
+  #+begin_src
+oc describe builds openshift-quarkus-example-1
+  #+end_src
+
+  To see the details of the running build execute the following commands:
+
+  #+begin_src sh
+oc logs -f openshift-quarkus-example-1-build
+  #+end_src
+
+  After the build completes, check which pods are running
+
+  #+begin_src sh
+oc get pods
+  #+end_src
+
+  If you want to start a new build an follow the logs:
+
+  #+begin_src
+oc start-build openshift-quarkus-example --follow
+  #+end_src
+
+  Is there a already deployment for this application?
+
+  #+begin_src sh
+oc get deployment
+  #+end_src
+
+  Lets try to expose our simple service
+
+  #+begin_src sh
+oc expose svc openshift-quarkus-example
+ROUTE=$(oc get route -o yaml openshift-quarkus-example -o jsonpath={.spec.host})
+PROJECT=$(oc project -q)
+curl -v "$ROUTE"/pods/"$PROJECT"
+  #+end_src
+
+  What is the HTTP status code?
+
+  Is there a hint in the container log?
+
+  #+begin_src sh
+oc logs -f -l deployment=openshift-quarkus-example
+  #+end_src
+
+  Let's try to fix this:
+
+  #+begin_src sh
+oc adm policy add-role-to-user view -z default
+  #+end_src
+
+  Now let's try to query our HTTP endpoint again
+
+  #+begin_src sh
+curl -v "$ROUTE"/pods/"$PROJECT"
+  #+end_src
