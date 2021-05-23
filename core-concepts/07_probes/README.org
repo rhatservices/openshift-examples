@@ -64,7 +64,8 @@ oc describe pod http-probe
 
 ** Cleanup
 
-   #+begin_src
-oc delete pod liveness-exec tcp-probe http-probe
+   Execute
 
+   #+begin_src
+../../utils/cleanup.sh
    #+end_src
