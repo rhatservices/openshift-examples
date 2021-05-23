@@ -8,14 +8,20 @@ oc status
 
   Which project are you currently using?
 
-  Are there any annotation on your project?
+  Store the current project name in an environment variable:
+
+  #+begin_src
+export PROJECT=$(oc project -q)
+  #+end_src
+
+  Are there any annotations on your project?
 
   #+begin_src sh
-oc describe project <project name>
+oc describe project $PROJECT
   #+end_src
 
   What is the difference to a namespace?
 
   #+begin_src
-oc describe ns <namespace>
+oc describe ns $PROJECT
   #+end_src
