@@ -1,10 +1,10 @@
 
 # Table of Contents
 
-1.  [Projects and namespaces](#orgebf080e)
+1.  [Projects and namespaces](#orgffb4555)
 
 
-<a id="orgebf080e"></a>
+<a id="orgffb4555"></a>
 
 # Projects and namespaces
 
@@ -14,10 +14,14 @@ Take a look at you current namespaces/project
 
 Which project are you currently using?
 
-Are there any annotation on your project?
+Store the current project name in an environment variable:
 
-    oc describe project <project name>
+    export PROJECT=$(oc project -q)
+
+Are there any annotations on your project?
+
+    oc describe project $PROJECT
 
 What is the difference to a namespace?
 
-    oc describe ns <namespace>
+    oc describe ns $PROJECT
