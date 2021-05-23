@@ -22,7 +22,8 @@ oc run -i -t ubi --image=registry.redhat.io/ubi8/ubi:8.3 --restart=Never --rm
    - --restart=Never ... Do not restart this pod
    - --rm ... Delete resources after this pod exits
 
-    Try this command again but this time remove the _--rm_ option
+
+   Try this command again but this time remove the _--rm_ option
 
    #+begin_src sh
 oc run -i -t ubi --image=registry.redhat.io/ubi8/ubi:8.3 --restart=Never
