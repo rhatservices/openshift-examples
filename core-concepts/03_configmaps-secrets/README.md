@@ -1,11 +1,11 @@
 
 # Table of Contents
 
-1.  [Configuring applications with configmaps and secrets](#org73d53e4)
-    1.  [cleanup](#orgdde5184)
+1.  [Configuring applications with configmaps and secrets](#org4ec0266)
+2.  [Cleanup](#orgcdb55c8)
 
 
-<a id="org73d53e4"></a>
+<a id="org4ec0266"></a>
 
 # Configuring applications with configmaps and secrets
 
@@ -26,12 +26,10 @@ Start a pod with
 Take a look at pod.yml and try to understand how it works
 
 
-<a id="orgdde5184"></a>
+<a id="orgcdb55c8"></a>
 
-## cleanup
+# Cleanup
 
-Delete all resource after finishing
+Execute
 
-    oc delete pod not-so-simple-pod
-    oc delete cm run config podenv
-    oc delete secret geheim
+    ../../utils/cleanup.sh

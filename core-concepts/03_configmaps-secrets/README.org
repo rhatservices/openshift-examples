@@ -22,12 +22,10 @@ oc apply -f not-so-simple-pod.yml
 
   Take a look at pod.yml and try to understand how it works
 
-** cleanup
+* Cleanup
 
-   Delete all resource after finishing
+   Execute
 
-   #+begin_src
-oc delete pod not-so-simple-pod
-oc delete cm run config podenv
-oc delete secret geheim
+   #+begin_src sh
+../../utils/cleanup.sh
    #+end_src
