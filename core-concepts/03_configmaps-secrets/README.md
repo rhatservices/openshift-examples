@@ -1,11 +1,11 @@
 
 # Table of Contents
 
-1.  [Configuring applications with configmaps and secrets](#org4ec0266)
-2.  [Cleanup](#orgcdb55c8)
+1.  [Configuring applications with configmaps and secrets](#orgcf77b8a)
+2.  [Cleanup](#org754c36d)
 
 
-<a id="org4ec0266"></a>
+<a id="orgcf77b8a"></a>
 
 # Configuring applications with configmaps and secrets
 
@@ -26,7 +26,7 @@ Start a pod with
 Take a look at pod.yml and try to understand how it works
 
 
-<a id="orgcdb55c8"></a>
+<a id="org754c36d"></a>
 
 # Cleanup
 
