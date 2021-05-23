@@ -6,7 +6,10 @@ declare -a OBJECTS
 
 OBJECTS=(pods deployments poddisruptionbudgets)
 
+OC_DELETE_OPTIONS="--grace-period=1"
+
 for o in "${OBJECTS[@]}"
 do
-    oc delete "$o" --all
+    echo "Removing all ${o} objects..."
+    oc delete "$o" --all "$OC_DELETE_OPTIONS"
 done
