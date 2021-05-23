@@ -58,6 +58,12 @@ oc expose svc nginx
 oc get route
    #+end_src
 
+   Try to access the nginx application via the route
+
+   #+begin_src sh
+curl -v $(oc get route nginx -o jsonpath={.spec.host})
+   #+end_src
+
 ** Expose the service via a SSL edge terminating route
 
    #+begin_src sh
@@ -70,6 +76,12 @@ oc create route edge nginx-ssl --service=nginx
 
    #+begin_src sh
 oc get route
+   #+end_src
+
+   Try to access the nginx application via the encrypted route
+
+   #+begin_src sh
+curl -v https://$(oc get route nginx -o jsonpath={.spec.host})
    #+end_src
 
 ** Cleanup
