@@ -12,11 +12,27 @@ oc project
 ** Creating a simple pod from the command line
 
    #+begin_src sh
+oc run -i -t ubi --image=registry.redhat.io/ubi8/ubi:8.3 --restart=Never --rm
+   #+end_src
+
+   #+RESULTS:
+
+   - -i ... run interactivly
+   - -t ... allocate a terminal
+   - --restart=Never ... Do not restart this pod
+   - --rm ... Delete resources after this pod exits
+
+    Try this command again but this time remove the _--rm_ option
+
+   #+begin_src sh
 oc run -i -t ubi --image=registry.redhat.io/ubi8/ubi:8.3 --restart=Never
    #+end_src
 
-   -i ... run interactivly
-   -t ... allocate a terminal
+   Check if there is still a pod resource after you exit the shell
+
+   #+begin_src sh
+oc get pods
+   #+end_src
 
    When finished delete the pod with
 
