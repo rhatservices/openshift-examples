@@ -1,12 +1,12 @@
 
 # Table of Contents
 
-1.  [This repository includes various OpenShift / Kubernetes examples](#org66999f0)
-    1.  [Core concepts](#org0365fc1)
-    2.  [Advanced topics](#org0615f9d)
+1.  [This repository includes various OpenShift / Kubernetes examples](#orgdeb03ea)
+    1.  [Core concepts](#org8e478ce)
+    2.  [Advanced topics](#orge279625)
 
 
-<a id="org66999f0"></a>
+<a id="orgdeb03ea"></a>
 
 # This repository includes various OpenShift / Kubernetes examples
 
@@ -21,7 +21,7 @@ basics. Feel free to use the examples in this repository.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">:exlamation: MIGHT EAT YOUR BELOVED CAT</td>
+<td class="org-left">:exclamation: MIGHT EAT YOUR BELOVED CAT</td>
 </tr>
 </tbody>
 </table>
@@ -39,13 +39,13 @@ Examples are implemented using
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">:exlamation: Some examples requires project admin privileges</td>
+<td class="org-left">:exclamation: Some examples requires project admin privileges</td>
 </tr>
 </tbody>
 </table>
 
 
-<a id="org0365fc1"></a>
+<a id="org8e478ce"></a>
 
 ## [Core concepts](core-concepts/)
 
@@ -64,7 +64,7 @@ Includes basic examples like:
 -   [Pod Topology Spread Constraints](core-concepts/11_pod_topology_spread_constraints/)
 
 
-<a id="org0615f9d"></a>
+<a id="orge279625"></a>
 
 ## [Advanced topics](advanced-concepts/)
 
