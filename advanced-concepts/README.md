@@ -1,26 +1,39 @@
 
 # Table of Contents
 
-1.  [bash completion](#orge936acc)
-2.  [Prerequisites for the advanced examples](#org31e2680)
-    1.  [Installation of the OpenShift GitOps operator and the ArgoCD binary](#org84fc078)
-    2.  [Installation of Bitnami Sealed Secrets and kubeseal](#orgfa5dcca)
-    3.  [Installation of kustomize](#orga64af18)
+1.  [bash completion](#org7be23bc)
+2.  [Prerequisites for the advanced examples](#orgd3e19e7)
+    1.  [Installation of the OpenShift GitOps operator and the ArgoCD binary](#orgb92fbee)
+    2.  [Installation of Bitnami Sealed Secrets and kubeseal](#org521db03)
+    3.  [Installation of kustomize](#org63cee9a)
 
 
-<a id="orge936acc"></a>
+<a id="org7be23bc"></a>
 
 # bash completion
 
 &#x2026;
 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<a id="org31e2680"></a>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">:exclamation: test</td>
+</tr>
+</tbody>
+</table>
+
+
+<a id="orgd3e19e7"></a>
 
 # Prerequisites for the advanced examples
 
 
-<a id="org84fc078"></a>
+<a id="orgb92fbee"></a>
 
 ## Installation of the OpenShift GitOps operator and the ArgoCD binary
 
@@ -39,7 +52,7 @@
     sudo install -m 755 argocd-linux-amd64 /usr/local/bin/argocd
 
 
-<a id="orgfa5dcca"></a>
+<a id="org521db03"></a>
 
 ## Installation of Bitnami Sealed Secrets and kubeseal
 
@@ -71,7 +84,7 @@ Create a required ClusterRole
       - delete
 
 
-<a id="orga64af18"></a>
+<a id="org63cee9a"></a>
 
 ## Installation of kustomize
 

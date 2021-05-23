@@ -2,6 +2,11 @@
 
   ...
 
+  |--------------------|
+  | :exclamation: test |
+  |--------------------|
+
+
 * Prerequisites for the advanced examples
 
 ** Installation of the OpenShift GitOps operator and the ArgoCD binary
