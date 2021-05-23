@@ -5,7 +5,7 @@
   Create a quota
 
   #+begin_src sh
-oc create -f object_quota.yaml
+oc create -f object-quota.yml
   #+end_src
 
   Take a look at the quota definition
