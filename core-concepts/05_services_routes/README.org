@@ -4,8 +4,11 @@
 
 ** Create a configmap using index.html
 
+   We also label the configmap with _openshift-example=true_
+
    #+begin_src sh
 oc create configmap index --from-file=index.html
+oc label configmap index openshift-example=yes
    #+end_src
 
 ** Create a new deployment using nginx

@@ -1,30 +1,33 @@
 
 # Table of Contents
 
-1.  [A full example for exposing an applictation](#orga8de43e)
-    1.  [Create a configmap using index.html](#org03bdc3a)
-    2.  [Create a new deployment using nginx](#org63e90e6)
-    3.  [Create a service for nginx](#org9f3291c)
-    4.  [Expose the service](#orgf9f5411)
-    5.  [Expose the service via a SSL edge terminating route](#orgb63f55b)
-    6.  [Cleanup](#org09136ec)
+1.  [A full example for exposing an applictation](#orgabcb81c)
+    1.  [Create a configmap using index.html](#orge26f1ce)
+    2.  [Create a new deployment using nginx](#orgcef48b1)
+    3.  [Create a service for nginx](#orgbd2ba5f)
+    4.  [Expose the service](#orgb0587f9)
+    5.  [Expose the service via a SSL edge terminating route](#org16900b1)
+    6.  [Cleanup](#org5609c65)
 
 
-<a id="orga8de43e"></a>
+<a id="orgabcb81c"></a>
 
 # A full example for exposing an applictation
 
 In this example we are going to deploy a pod running nginx.
 
 
-<a id="org03bdc3a"></a>
+<a id="orge26f1ce"></a>
 
 ## Create a configmap using index.html
 
+We also label the configmap with <span class="underline">openshift-example=true</span>
+
     oc create configmap index --from-file=index.html
+    oc label configmap index openshift-example=yes
 
 
-<a id="org63e90e6"></a>
+<a id="orgcef48b1"></a>
 
 ## Create a new deployment using nginx
 
@@ -38,7 +41,7 @@ Test the deployment with curl and oc port-forward
     curl localhost:8080
 
 
-<a id="org9f3291c"></a>
+<a id="orgbd2ba5f"></a>
 
 ## Create a service for nginx
 
@@ -51,7 +54,7 @@ Can you use curl to access the service?
 What happens if you modify the configmap and curl the service again?
 
 
-<a id="orgf9f5411"></a>
+<a id="orgb0587f9"></a>
 
 ## Expose the service
 
@@ -62,7 +65,7 @@ What kind of resource gets created?
     oc get route
 
 
-<a id="orgb63f55b"></a>
+<a id="org16900b1"></a>
 
 ## Expose the service via a SSL edge terminating route
 
@@ -75,7 +78,7 @@ Can you take a look at the details of the resource?
     oc get route
 
 
-<a id="org09136ec"></a>
+<a id="org5609c65"></a>
 
 ## Cleanup
 
