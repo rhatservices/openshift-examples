@@ -1,23 +1,24 @@
 
 # Table of Contents
 
-1.  [A full example for exposing an applictation](#orgabcb81c)
-    1.  [Create a configmap using index.html](#orge26f1ce)
-    2.  [Create a new deployment using nginx](#orgcef48b1)
-    3.  [Create a service for nginx](#orgbd2ba5f)
-    4.  [Expose the service](#orgb0587f9)
-    5.  [Expose the service via a SSL edge terminating route](#org16900b1)
-    6.  [Cleanup](#org5609c65)
+1.  [A full example for exposing an applictation](#orgc8975cb)
+    1.  [Create a configmap using index.html](#org2b37e2d)
+    2.  [Create a new deployment using nginx](#org8e225ea)
+        1.  [Test the deployment with curl and oc port-forward.](#org04be95c)
+    3.  [Create a service for nginx](#orgdb62d88)
+    4.  [Expose the service](#orga3fbdca)
+    5.  [Expose the service via a SSL edge terminating route](#org5d7ccc2)
+    6.  [Cleanup](#org3b28082)
 
 
-<a id="orgabcb81c"></a>
+<a id="orgc8975cb"></a>
 
 # A full example for exposing an applictation
 
 In this example we are going to deploy a pod running nginx.
 
 
-<a id="orge26f1ce"></a>
+<a id="org2b37e2d"></a>
 
 ## Create a configmap using index.html
 
@@ -27,7 +28,7 @@ We also label the configmap with <span class="underline">openshift-example=true<
     oc label configmap index openshift-example=yes
 
 
-<a id="orgcef48b1"></a>
+<a id="org8e225ea"></a>
 
 ## Create a new deployment using nginx
 
@@ -35,13 +36,22 @@ We also label the configmap with <span class="underline">openshift-example=true<
 
 What kind of resource are created?
 
-Test the deployment with curl and oc port-forward
 
-    oc port-forward deployment/nginx-deployment 80<conschul-id>:8080
-    curl localhost:8080
+<a id="org04be95c"></a>
+
+### Test the deployment with curl and oc port-forward.
+
+When you start <span class="underline">oc port-forward</span> will just sit there with no output
+and forwards the port. For running the second <span class="underline">curl</span> command open a
+second shell on the **same** machine where <span class="underline">oc port-foward</span> is
+running (or move the command to the background).
+
+    export PORT="80$(( $RANDOM % 89 + 10))"
+    oc port-forward deployment/nginx-deployment $PORT:8080
+    curl localhost:$PORT
 
 
-<a id="orgbd2ba5f"></a>
+<a id="orgdb62d88"></a>
 
 ## Create a service for nginx
 
@@ -54,7 +64,7 @@ Can you use curl to access the service?
 What happens if you modify the configmap and curl the service again?
 
 
-<a id="orgb0587f9"></a>
+<a id="orga3fbdca"></a>
 
 ## Expose the service
 
@@ -65,7 +75,7 @@ What kind of resource gets created?
     oc get route
 
 
-<a id="org16900b1"></a>
+<a id="org5d7ccc2"></a>
 
 ## Expose the service via a SSL edge terminating route
 
@@ -78,7 +88,7 @@ Can you take a look at the details of the resource?
     oc get route
 
 
-<a id="org5609c65"></a>
+<a id="org3b28082"></a>
 
 ## Cleanup
 

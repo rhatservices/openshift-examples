@@ -19,11 +19,17 @@ oc apply -f nginx-deployment-cm.yml
 
    What kind of resource are created?
 
-   Test the deployment with curl and oc port-forward
+*** Test the deployment with curl and oc port-forward.
+
+   When you start _oc port-forward_ will just sit there with no output
+   and forwards the port. For running the second _curl_ command open a
+   second shell on the *same* machine where _oc port-foward_ is
+   running (or move the command to the background).
 
    #+begin_src sh
-oc port-forward deployment/nginx-deployment 80<conschul-id>:8080
-curl localhost:8080
+export PORT="80$(( $RANDOM % 89 + 10))"
+oc port-forward deployment/nginx-deployment $PORT:8080
+curl localhost:$PORT
    #+end_src
 
 ** Create a service for nginx
