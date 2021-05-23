@@ -89,8 +89,5 @@ curl -kv https://$(oc get route nginx -o jsonpath={.spec.host})
    Delete all resources created:
 
    #+begin_src sh
-oc delete deployment nginx-deployment
-oc delete pod curl-pod
-oc delete route nginx nginx-ssl
-oc delete svc nginx
+../../utils/cleanup.sh
    #+end_src
