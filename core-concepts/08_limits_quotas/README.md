@@ -1,17 +1,30 @@
 
 # Table of Contents
 
-1.  [Working with quotas and limitranges](#orgc0c966a)
-    1.  [Quotas](#org8e6dcb5)
-    2.  [LimitRange](#orgecac0af)
+1.  [Prerequisites](#org645b0cf)
+2.  [Working with quotas and limitranges](#org43c0b04)
+    1.  [Quotas](#org0f42719)
+    2.  [LimitRange](#org7ea6ecc)
 
 
-<a id="orgc0c966a"></a>
+<a id="org645b0cf"></a>
+
+# Prerequisites
+
+The examples in this section require that project admins are allowed
+to edit resourcequotas and limitranges. In a default OpenShift
+installation this is not allowed.
+
+Apply the <span class="underline">quote-edit-role.yml</span> role to the cluster, this requires
+cluster:admin permissions.
+
+
+<a id="org43c0b04"></a>
 
 # Working with quotas and limitranges
 
 
-<a id="org8e6dcb5"></a>
+<a id="org0f42719"></a>
 
 ## Quotas
 
@@ -64,7 +77,7 @@ In which quality of service class is the pod running and why is it using that pa
     oc get pod -o jsonpath='qosClass: {.status.qosClass}{"\n"}' <pod>
 
 
-<a id="orgecac0af"></a>
+<a id="org7ea6ecc"></a>
 
 ## LimitRange
 

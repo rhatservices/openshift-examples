@@ -1,3 +1,12 @@
+* Prerequisites
+
+  The examples in this section require that project admins are allowed
+  to edit resourcequotas and limitranges. In a default OpenShift
+  installation this is not allowed.
+
+  Apply the _quote-edit-role.yml_ role to the cluster, this requires
+  cluster:admin permissions.
+
 * Working with quotas and limitranges
 
 ** Quotas
