@@ -4,7 +4,7 @@ metadata:
   name: tcp-live-ready
   labels:
     app: tcp-live-ready
-    openshift-example: yes
+    openshift-example: "yes"
 spec:
   containers:
   - name: tcp-live-ready

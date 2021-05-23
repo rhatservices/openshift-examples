@@ -3,7 +3,7 @@ kind: ClusterRole
 metadata:
   name: quota-edit
   labels:
-    openshift-example: yes
+    openshift-example: "yes"
 rules:
 - apiGroups:
   - ""

@@ -3,7 +3,7 @@ kind: PodDisruptionBudget
 metadata:
   name: example-pdb
   labels:
-    openshift-example: yes
+    openshift-example: "yes"
 spec:
   minAvailable: 1
   selector:

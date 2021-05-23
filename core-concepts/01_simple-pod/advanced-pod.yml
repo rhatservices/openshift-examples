@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   labels:
     run: advanced-pod
-    openshift-example: yes
+    openshift-example: "yes"
   name: advanced-pod
 spec:
   containers:

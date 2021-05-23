@@ -3,7 +3,7 @@ kind: ResourceQuota
 metadata:
   name: object-counts
   labels:
-    openshift-example: yes
+    openshift-example: "yes"
 spec:
   hard:
     pods: "2"

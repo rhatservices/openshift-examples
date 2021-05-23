@@ -4,7 +4,7 @@ metadata:
   name: quota-test
   labels:
     app: quota-test
-    openshift-example: yes
+    openshift-example: "yes"
 spec:
   replicas: 1
   selector:

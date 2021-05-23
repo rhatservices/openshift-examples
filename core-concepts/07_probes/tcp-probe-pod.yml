@@ -4,7 +4,7 @@ metadata:
   name: tcp-probe
   labels:
     app: tcp-probe
-    openshift-example: yes
+    openshift-example: "yes"
 spec:
   containers:
   - name: tcp-probe

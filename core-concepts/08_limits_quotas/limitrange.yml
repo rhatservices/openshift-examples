@@ -3,7 +3,7 @@ kind: LimitRange
 metadata:
   name: cpu-min-max-demo-lr
   labels:
-    openshift-example: yes
+    openshift-example: "yes"
 spec:
   limits:
   - max:
