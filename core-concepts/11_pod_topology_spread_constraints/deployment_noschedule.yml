@@ -15,6 +15,7 @@ spec:
       labels:
         app: simple
         environment: production
+        openshift-example: "yes"
     spec:
       topologySpreadConstraints:
       - maxSkew: 1
