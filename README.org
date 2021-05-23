@@ -4,7 +4,7 @@
   basics. Feel free to use the examples in this repository.
 
   |-----------------------------------------|
-  | :exlamation: MIGHT EAT YOUR BELOVED CAT |
+  | :exclamation: MIGHT EAT YOUR BELOVED CAT |
   |-----------------------------------------|
 
   Examples are implemented using
@@ -13,7 +13,7 @@
   - [[https://github.com/rhatservices/openshift-quarkus-example]]
 
   |--------------------------------------------------------------|
-  | :exlamation: Some examples requires project admin privileges |
+  | :exclamation: Some examples requires project admin privileges |
   |--------------------------------------------------------------|
 
 ** [[file:core-concepts/][Core concepts]]
