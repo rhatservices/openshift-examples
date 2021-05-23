@@ -4,7 +4,7 @@ set -euf -o pipefail
 
 declare -a OBJECTS
 
-OBJECTS=(pods deployments poddisruptionbudgets)
+OBJECTS=(pods deployments secrets configmaps poddisruptionbudgets)
 
 OC_DELETE_OPTIONS="--grace-period=1"
 
