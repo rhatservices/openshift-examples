@@ -1,10 +1,11 @@
 
 # Table of Contents
 
-1.  [Labels and annotations](#orgbb96791)
+1.  [Labels and annotations](#org1ae2194)
+2.  [Cleanup](#org15fd679)
 
 
-<a id="orgbb96791"></a>
+<a id="org1ae2194"></a>
 
 # Labels and annotations
 
@@ -26,3 +27,12 @@ Annotate a pod
 Try to query the via the annotation
 
     oc get pods -l foo=bar
+
+
+<a id="org15fd679"></a>
+
+# Cleanup
+
+Execute
+
+    ../../utils/cleanup.sh

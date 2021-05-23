@@ -26,3 +26,11 @@ oc describe pod pod-a
   #+begin_src
 oc get pods -l foo=bar
   #+end_src
+
+* Cleanup
+
+  Execute
+
+  #+begin_src sh
+../../utils/cleanup.sh
+  #+end_src
