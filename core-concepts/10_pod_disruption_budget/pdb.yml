@@ -2,6 +2,8 @@ apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
   name: example-pdb
+  labels:
+    openshift-example: true
 spec:
   minAvailable: 1
   selector:

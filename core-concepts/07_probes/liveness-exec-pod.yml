@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   labels:
     test: liveness
+    openshift-example: true
   name: liveness-exec
 spec:
   containers:

@@ -4,6 +4,7 @@ metadata:
   labels:
     app: frontend
     environment: production
+    openshift-example: true
   name: pod-c
 spec:
   affinity:

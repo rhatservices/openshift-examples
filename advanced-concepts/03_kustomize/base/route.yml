@@ -3,6 +3,8 @@ kind: Route
 metadata:
   annotations:
   name: nginx
+  labels:
+    openshift-example: true
 spec:
   host: nginx-nginx.apps.ocp.lan.stderr.at
   port:

@@ -2,6 +2,8 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: quota-edit
+  labels:
+    openshift-example: true
 rules:
 - apiGroups:
   - ""

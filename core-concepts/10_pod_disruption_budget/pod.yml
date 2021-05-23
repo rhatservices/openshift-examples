@@ -7,6 +7,7 @@ items:
     labels:
       app: backend
       environment: production
+      openshift-example: true
     name: pod
   spec:
     containers:

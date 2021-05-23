@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   labels:
     run: curl-pod
+    openshift-example: true
   name: curl-pod
 spec:
   containers:

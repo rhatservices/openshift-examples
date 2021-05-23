@@ -7,6 +7,7 @@ items:
     labels:
       app: label-test
       environment: development
+      openshift-example: true
     name: pod-b
   spec:
     containers:

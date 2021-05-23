@@ -3,6 +3,8 @@ kind: Route
 metadata:
   annotations:
   name: nginx
+  labels:
+    openshift-example: true
 spec:
   port:
     targetPort: 8080
