@@ -6,7 +6,7 @@ LABEL="openshift-example=yes"
 
 declare -a OBJECTS
 
-OBJECTS=(deployments pods secrets configmaps poddisruptionbudgets)
+OBJECTS=(deployments pods secrets configmaps routes services poddisruptionbudgets)
 
 OC_DELETE_OPTIONS="--grace-period=1"
 OC_SELECTOR="--selector=${LABEL}"
