@@ -1,26 +1,51 @@
 
 # Table of Contents
 
-1.  [This repository includes various OpenShift / Kubernetes examples](#orgc44c806)
-    1.  [Core concepts](#org861fe29)
-    2.  [Advanced topics](#orgbebfd01)
+1.  [This repository includes various OpenShift / Kubernetes examples](#org66999f0)
+    1.  [Core concepts](#org0365fc1)
+    2.  [Advanced topics](#org0615f9d)
 
 
-<a id="orgc44c806"></a>
+<a id="org66999f0"></a>
 
 # This repository includes various OpenShift / Kubernetes examples
 
 It is mainly used in workshops regarding OpenShift and Kubernetes
-basics. Feel free to use the examples in this repository, but do not
-complain if one of them eats your cat.
+basics. Feel free to use the examples in this repository.
 
-Exapmles are implemented using
-
--   registry.redhat.io/ubi8/ubi:8.3 and
--
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
-<a id="org861fe29"></a>
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">:exlamation: MIGHT EAT YOUR BELOVED CAT</td>
+</tr>
+</tbody>
+</table>
+
+Examples are implemented using
+
+-   registry.redhat.io/ubi8/ubi:8.3
+-   <https://github.com/rhatservices/openshift-quarkus-example>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">:exlamation: Some examples requires project admin privileges</td>
+</tr>
+</tbody>
+</table>
+
+
+<a id="org0365fc1"></a>
 
 ## [Core concepts](core-concepts/)
 
@@ -39,11 +64,11 @@ Includes basic examples like:
 -   [Pod Topology Spread Constraints](core-concepts/11_pod_topology_spread_constraints/)
 
 
-<a id="orgbebfd01"></a>
+<a id="org0615f9d"></a>
 
 ## [Advanced topics](advanced-concepts/)
 
--   [ArgoCD](advanced-concepts/01_argocd)
--   [Kustomize](advanced-concepts/02_kustomize/)
--   [Sealed secrets](advanced-concepts/03_sealed_secrets/)
--   [Building images](advanced-concepts/04_building/)
+-   [Building images](advanced-concepts/01_building)
+-   [Sealed secrets](advanced-concepts/02_sealed_secrets/)
+-   [Kustomize](advanced-concepts/03_kustomize/)
+-   [ArgoCD](advanced-concepts/04_argocd)

@@ -1,13 +1,20 @@
 * This repository includes various OpenShift / Kubernetes examples
 
   It is mainly used in workshops regarding OpenShift and Kubernetes
-  basics. Feel free to use the examples in this repository, but do not
-  complain if one of them eats your cat.
+  basics. Feel free to use the examples in this repository.
 
-  Exapmles are implemented using
+  |-----------------------------------------|
+  | :exlamation: MIGHT EAT YOUR BELOVED CAT |
+  |-----------------------------------------|
 
-  - registry.redhat.io/ubi8/ubi:8.3 and
-  -
+  Examples are implemented using
+
+  - registry.redhat.io/ubi8/ubi:8.3
+  - [[https://github.com/rhatservices/openshift-quarkus-example]]
+
+  |--------------------------------------------------------------|
+  | :exlamation: Some examples requires project admin privileges |
+  |--------------------------------------------------------------|
 
 ** [[file:core-concepts/][Core concepts]]
 
@@ -27,7 +34,7 @@
 
 ** [[file:advanced-concepts/][Advanced topics]]
 
-   - [[file:advanced-concepts/01_argocd][ArgoCD]]
-   - [[file:advanced-concepts/02_kustomize/][Kustomize]]
-   - [[file:advanced-concepts/03_sealed_secrets/][Sealed secrets]]
-   - [[file:advanced-concepts/04_building/][Building images]]
+   - [[file:advanced-concepts/01_building][Building images]]
+   - [[file:advanced-concepts/02_sealed_secrets/][Sealed secrets]]
+   - [[file:advanced-concepts/03_kustomize/][Kustomize]]
+   - [[file:advanced-concepts/04_argocd][ArgoCD]]
