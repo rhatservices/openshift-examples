@@ -8,5 +8,5 @@ OBJECTS=(pods deployments poddisruptionbudgets)
 
 for o in "${OBJECTS[@]}"
 do
-    oc delete "$o"
+    oc delete "$o" --all
 done
