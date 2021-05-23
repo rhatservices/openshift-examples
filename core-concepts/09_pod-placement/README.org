@@ -36,6 +36,8 @@ oc get pods -o wide
 
 ** Cleanup
 
+   Execute
+
    #+begin_src
-oc delete pod-a pod-b pod-c
+../../utils/cleanup.sh
    #+end_src

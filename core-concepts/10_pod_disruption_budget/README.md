@@ -1,11 +1,11 @@
 
 # Table of Contents
 
-1.  [Pod disruption budget](#org0227779)
-    1.  [Cleanup](#org06e89f1)
+1.  [Pod disruption budget](#org403d345)
+    1.  [Cleanup](#org040bd0c)
 
 
-<a id="org0227779"></a>
+<a id="org403d345"></a>
 
 # Pod disruption budget
 
@@ -26,9 +26,10 @@ Check the status of the pod disruption budget
     oc describe pdb example-pdb
 
 
-<a id="org06e89f1"></a>
+<a id="org040bd0c"></a>
 
 ## Cleanup
 
-    oc delete pod pod
-    oc delete pdb example-pdb
+Execute
+
+    ../../utils/cleanup.sh

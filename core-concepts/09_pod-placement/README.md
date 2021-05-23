@@ -1,11 +1,11 @@
 
 # Table of Contents
 
-1.  [Pod affinity and anti-affinity](#orga2e4237)
-    1.  [Cleanup](#org6ced2bf)
+1.  [Pod affinity and anti-affinity](#org9d2ae86)
+    1.  [Cleanup](#org0861ecb)
 
 
-<a id="orga2e4237"></a>
+<a id="org9d2ae86"></a>
 
 # Pod affinity and anti-affinity
 
@@ -34,8 +34,10 @@ Check pod placement
     oc get pods -o wide
 
 
-<a id="org6ced2bf"></a>
+<a id="org0861ecb"></a>
 
 ## Cleanup
 
-    oc delete pod-a pod-b pod-c
+Execute
+
+    ../../utils/cleanup.sh

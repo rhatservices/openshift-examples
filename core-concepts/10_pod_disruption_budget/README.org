@@ -26,7 +26,8 @@ oc describe pdb example-pdb
 
 ** Cleanup
 
+   Execute
+
    #+begin_src
-oc delete pod pod
-oc delete pdb example-pdb
+../../utils/cleanup.sh
    #+end_src
