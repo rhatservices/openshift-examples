@@ -6,7 +6,8 @@ declare -a OBJECTS
 
 OBJECTS=(pods deployments secrets configmaps poddisruptionbudgets)
 
-OC_DELETE_OPTIONS="--grace-period=1"
+LABEL="openshift-example=true"
+OC_DELETE_OPTIONS="--grace-period=1  --label=openshift-example=true"
 
 for o in "${OBJECTS[@]}"
 do
