@@ -2,15 +2,17 @@
 
 set -euf -o pipefail
 
+LABEL="openshift-example=true"
+
 declare -a OBJECTS
 
 OBJECTS=(pods deployments secrets configmaps poddisruptionbudgets)
 
-LABEL="openshift-example=true"
-OC_DELETE_OPTIONS="--grace-period=1  --label=openshift-example=true"
+OC_DELETE_OPTIONS="--grace-period=1"
+OC_SELECTOR="--selector=${LABEL}"
 
 for o in "${OBJECTS[@]}"
 do
     echo "* Removing all ${o} objects..."
-    oc delete "$o" --all "$OC_DELETE_OPTIONS"
+    oc delete "$o" "$OC_DELETE_OPTIONS" "$OC_SELECTOR"
 done
