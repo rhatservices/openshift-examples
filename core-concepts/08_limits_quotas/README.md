@@ -1,23 +1,23 @@
 
 # Table of Contents
 
-1.  [Working with quotas and limitranges](#orge12e353)
-    1.  [Quotas](#org9fc80ae)
-    2.  [LimitRange](#orgc935934)
+1.  [Working with quotas and limitranges](#orgc0c966a)
+    1.  [Quotas](#org8e6dcb5)
+    2.  [LimitRange](#orgecac0af)
 
 
-<a id="orge12e353"></a>
+<a id="orgc0c966a"></a>
 
 # Working with quotas and limitranges
 
 
-<a id="org9fc80ae"></a>
+<a id="org8e6dcb5"></a>
 
 ## Quotas
 
 Create a quota
 
-    oc create -f object_quota.yaml
+    oc create -f object-quota.yml
 
 Take a look at the quota definition
 
@@ -64,7 +64,7 @@ In which quality of service class is the pod running and why is it using that pa
     oc get pod -o jsonpath='qosClass: {.status.qosClass}{"\n"}' <pod>
 
 
-<a id="orgc935934"></a>
+<a id="orgecac0af"></a>
 
 ## LimitRange
 
