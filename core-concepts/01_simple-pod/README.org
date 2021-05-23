@@ -55,3 +55,11 @@ oc get pods
    #+end_src
 
    to the list of running pods in the current namespace.
+
+* Cleanup
+
+  Execute
+
+  #+begin_src
+../../utils/cleanup.sh
+  #+end_src

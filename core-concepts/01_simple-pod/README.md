@@ -1,19 +1,20 @@
 
 # Table of Contents
 
-1.  [This is a very  simple pod](#orgff343ca)
-    1.  [Check your current namespace](#org033df1a)
-    2.  [Creating a simple pod from the command line](#orgc5a7c88)
-    3.  [Creating a simple pod via a yaml file](#orgda401d6)
-    4.  [A pod running two containers](#org4c618f3)
+1.  [This is a very  simple pod](#orga3bbd1d)
+    1.  [Check your current namespace](#org9c9ef90)
+    2.  [Creating a simple pod from the command line](#org1fdb177)
+    3.  [Creating a simple pod via a yaml file](#org7502e8b)
+    4.  [A pod running two containers](#orgf160c00)
+2.  [Cleanup](#orgdafaf55)
 
 
-<a id="orgff343ca"></a>
+<a id="orga3bbd1d"></a>
 
 # This is a very  simple pod
 
 
-<a id="org033df1a"></a>
+<a id="org9c9ef90"></a>
 
 ## Check your current namespace
 
@@ -23,7 +24,7 @@ the current namespace that you are using
     oc project
 
 
-<a id="orgc5a7c88"></a>
+<a id="org1fdb177"></a>
 
 ## Creating a simple pod from the command line
 
@@ -37,7 +38,7 @@ When finished delete the pod with
     oc delete pod ubi
 
 
-<a id="orgda401d6"></a>
+<a id="org7502e8b"></a>
 
 ## Creating a simple pod via a yaml file
 
@@ -52,7 +53,7 @@ run
 to the list of running pods in the current namespace.
 
 
-<a id="org4c618f3"></a>
+<a id="orgf160c00"></a>
 
 ## A pod running two containers
 
@@ -65,3 +66,12 @@ run
     oc get pods
 
 to the list of running pods in the current namespace.
+
+
+<a id="orgdafaf55"></a>
+
+# Cleanup
+
+Execute
+
+    ../../utils/cleanup.sh
