@@ -16,7 +16,7 @@ oc apply -f nginx-deployment.yml
 
    #+begin_src sh
 oc get pods
-oc delete pod nginx-deployment-<id>
+oc delete pods -l openshift-example=yes
 oc get pods
    #+end_src
 
@@ -28,6 +28,10 @@ oc scale --replicas=2 deployment/nginx-deployment
 
    What is the state of the replicaset now?
 
+   #+begin_src sh
+oc get replicaset
+   #+end_src
+
    How many pods are running?
 
    #+begin_src sh
@@ -35,3 +39,11 @@ oc delete deployment nginx-deployment
    #+end_src
 
    What happens with dependend objects (replicaset, pods)?
+
+* Cleanup
+
+  Execute
+
+  #+begin_src sh
+../../utils/cleanup.sh
+  #+end_src
