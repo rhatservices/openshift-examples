@@ -1,19 +1,19 @@
 
 # Table of Contents
 
-1.  [Liveness and readyness probes](#org08efa13)
-    1.  [liveness probe in action](#org18b9f8c)
-    2.  [liveness and readyness tcp probe](#org5b57c27)
-    3.  [http probes](#orgba5237e)
-    4.  [Cleanup](#orgc6841db)
+1.  [Liveness and readyness probes](#orgf7f77f6)
+    1.  [liveness probe in action](#org6f74694)
+    2.  [liveness and readyness tcp probe](#orgf1dc032)
+    3.  [http probes](#orgf16e157)
+    4.  [Cleanup](#org0640922)
 
 
-<a id="org08efa13"></a>
+<a id="orgf7f77f6"></a>
 
 # Liveness and readyness probes
 
 
-<a id="org18b9f8c"></a>
+<a id="org6f74694"></a>
 
 ## liveness probe in action
 
@@ -35,10 +35,10 @@ What do you expect will happen after 30 seconds?
 
 Look at the pod status
 
-    oc descibe pod liveness-exec
+    oc describe pod liveness-exec
 
 
-<a id="org5b57c27"></a>
+<a id="orgf1dc032"></a>
 
 ## liveness and readyness tcp probe
 
@@ -53,7 +53,7 @@ Describe the pod status
 Does the status change over time?
 
 
-<a id="orgba5237e"></a>
+<a id="orgf16e157"></a>
 
 ## http probes
 
@@ -68,7 +68,7 @@ What is the status of the pods
 Can you fix the pod?
 
 
-<a id="orgc6841db"></a>
+<a id="org0640922"></a>
 
 ## Cleanup
 

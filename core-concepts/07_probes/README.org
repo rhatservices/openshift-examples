@@ -27,7 +27,7 @@ oc describe pod liveness-exec
   Look at the pod status
 
   #+begin_src sh
-oc descibe pod liveness-exec
+oc describe pod liveness-exec
   #+end_src
 
 ** liveness and readyness tcp probe
