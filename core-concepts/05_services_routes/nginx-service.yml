@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: nginx
   labels:
-    openshift-example: true
+    openshift-example: yes
 spec:
   selector:
     app: nginx

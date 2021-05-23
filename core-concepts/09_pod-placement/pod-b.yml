@@ -4,7 +4,7 @@ metadata:
   labels:
     app: label-test
     environment: development
-    openshift-example: true
+    openshift-example: yes
   name: pod-b
 spec:
   affinity:

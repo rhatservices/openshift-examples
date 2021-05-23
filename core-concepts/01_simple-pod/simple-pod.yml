@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   labels:
     run: simple-pod
-    openshift-example: true
+    openshift-example: yes
   name: simple-pod
 spec:
   containers:

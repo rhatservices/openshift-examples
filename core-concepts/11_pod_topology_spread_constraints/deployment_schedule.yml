@@ -4,7 +4,7 @@ metadata:
   name: deployment-scheduleable
   labels:
     app: simple
-    openshift-example: true
+    openshift-example: yes
 spec:
   replicas: 2
   selector:

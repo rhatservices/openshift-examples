@@ -2,7 +2,7 @@
 
 set -euf -o pipefail
 
-LABEL="openshift-example=true"
+LABEL="openshift-example=yes"
 
 declare -a OBJECTS
 

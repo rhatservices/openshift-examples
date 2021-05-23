@@ -4,7 +4,7 @@ metadata:
   annotations:
   name: nginx
   labels:
-    openshift-example: true
+    openshift-example: yes
 spec:
   port:
     targetPort: 8080
