@@ -18,13 +18,13 @@ kustomize build base/ | oc apply -f -
 oc apply -k build/
   #+end_src
 
-  as oc or kubectl already bundle a version of kustomize
+  as ~oc~ and ~kubectl~ already bundle a version of kustomize
 
   |-----------------------------------------------------------------------------------------------------------------------------------|
   | :exclamation: The version bundled with oc or kubectl of kustomize is rather old. If there are any problems use kustomize directly |
   |-----------------------------------------------------------------------------------------------------------------------------------|
 
-  Use curl to test the deployed nginx instance
+  Use ~curl~ to test the deployed nginx instance
 
   #+begin_src sh
 ROUTE=$(oc get route nginx -o jsonpath={.spec.host})
@@ -33,18 +33,16 @@ curl -v "$ROUTE"
 
 ** Overlays
 
-   Apply the overlay hello-conschul
+   Now lets try to use the overlay
 
    #+begin_src sh
-oc apply -k overlays/hello-consul/
+kustomize build overlays/training/
    #+end_src
-
-   Does this work?
 
    Try do create the resources with kustomize:
 
    #+begin_src sh
-kustomize build overlays/hello-conschul/
+kustomize build overlays/training/ | oc apply -f
    #+end_src
 
    What is the status of the nginx pods?
@@ -52,3 +50,9 @@ kustomize build overlays/hello-conschul/
    What happens if you use curl to test the application again?
 
 * Cleanup
+
+  Execute:
+
+  #+begin_src sh
+../../utils/cleanup.sh
+  #+end_src

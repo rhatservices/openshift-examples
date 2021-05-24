@@ -4,7 +4,6 @@ metadata:
   annotations:
   name: nginx
 spec:
-  host: nginx-nginx.apps.ocp.lan.stderr.at
   port:
     targetPort: 8080
   to:

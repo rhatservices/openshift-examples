@@ -1,12 +1,12 @@
 
 # Table of Contents
 
-1.  [Kustomize basics](#org4796a96)
-    1.  [Overlays](#org7c12efa)
-2.  [Cleanup](#orgb676127)
+1.  [Kustomize basics](#org92f9f75)
+    1.  [Overlays](#org92f4746)
+2.  [Cleanup](#orgae57aa0)
 
 
-<a id="org4796a96"></a>
+<a id="org92f9f75"></a>
 
 # Kustomize basics
 
@@ -22,7 +22,7 @@ You could also run
 
     oc apply -k build/
 
-as oc or kubectl already bundle a version of kustomize
+as `oc` and `kubectl` already bundle a version of kustomize
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -37,31 +37,33 @@ as oc or kubectl already bundle a version of kustomize
 </tbody>
 </table>
 
-Use curl to test the deployed nginx instance
+Use `curl` to test the deployed nginx instance
 
     ROUTE=$(oc get route nginx -o jsonpath={.spec.host})
     curl -v "$ROUTE"
 
 
-<a id="org7c12efa"></a>
+<a id="org92f4746"></a>
 
 ## Overlays
 
-Apply the overlay hello-conschul
+Now lets try to use the overlay
 
-    oc apply -k overlays/hello-consul/
-
-Does this work?
+    kustomize build overlays/training/
 
 Try do create the resources with kustomize:
 
-    kustomize build overlays/hello-conschul/
+    kustomize build overlays/training/ | oc apply -f
 
 What is the status of the nginx pods?
 
 What happens if you use curl to test the application again?
 
 
-<a id="orgb676127"></a>
+<a id="orgae57aa0"></a>
 
 # Cleanup
+
+Execute:
+
+    ../../utils/cleanup.sh
