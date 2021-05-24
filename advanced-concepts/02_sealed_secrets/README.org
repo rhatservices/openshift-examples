@@ -17,11 +17,18 @@ oc create -f sealed_secret.json
   List the current secrets and sealedsecrets:
 
   #+begin_src
-oc get secrets
 oc get sealedsecrets
+oc desribe sealedsecrets
+oc get secrets
   #+end_src
 
   Why do we have a standard K8s secret with the same name?
+
+  Run cleanup.sh for the next example:
+
+  #+begin_src sh
+../../utils/cleanup.sh
+  #+end_src
 
 ** Understanding scopes
 
@@ -38,3 +45,11 @@ oc create -f sealed_secret.json
    What happens to the secret?
 
    What is the state of the sealed secrets?
+
+* Cleanup
+
+  Execute:
+
+  #+begin_src sh
+../../utils/cleanup.sh
+  #+end_src
