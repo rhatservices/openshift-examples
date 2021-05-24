@@ -3,6 +3,8 @@ kind: ArgoCD
 metadata:
   annotations:
   name: argocd
+  labels:
+    openshift-example: "yes"
 spec:
   grafana:
     enabled: false
