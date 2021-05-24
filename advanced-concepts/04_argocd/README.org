@@ -4,6 +4,16 @@
 
 * ArgoCD
 
+  |--------------------------------------------------------------------------------|
+  | :exclamation: For me ArgoCD currently only works with cluster-admin privileges |
+  |--------------------------------------------------------------------------------|
+
+     ArgoCD needs project admin rights in your namespace:
+
+   #+begin_src sh
+oc adm policy add-cluster-role-to-user cluster-admin -z argocd-argocd-application-controller
+   #+end_src
+
 ** Create an ArgoCD instance in your project and try to login
 
    First we create a new ArgoCD instance in our namespace.
@@ -14,14 +24,28 @@
 oc apply -f argocd.yml
    #+end_src
 
+
+
    Extract the admin password and the route and login to ArgoCD
 
    #+begin_src sh
 export ARGOCD_PASSWORD=$(oc get secrets -o jsonpath="{.data['admin\.password']}" argocd-cluster |base64 -d)
 export ARGOCD_ROUTE=$(oc get route -o yaml argocd-server -o jsonpath={.spec.host})
+   #+end_src
 
+   Execute
+
+   #+begin_src
+ oc get argocd argocd -o jsonpath='{.status.phase}{"\n"}'
+   #+end_src
+
+   and wait for ArgoCD to become available.
+
+   #+begin_src
 argocd  login --insecure --username admin --password "$ARGOCD_PASSWORD"  "$ARGOCD_ROUTE"
    #+end_src
+
+
 
    Try to list the available projects:
 
@@ -41,9 +65,15 @@ argocd proj list
   Create an example application within ArgoCD
 
   #+begin_src
-argocd app create example-app --project <project name> --repo <gitlab url>/openshift-examples.git --revision main --path advanced-concepts/01_argocd/application --dest-server https://kubernetes.default.svc --dest-namespace <namespace>
+PROJECT=$(oc project -q)
+argocd app create nginx-app --project default --repo https://github.com/rhatservices/openshift-examples.git --revision main --path advanced-concepts/04_argocd/application --dest-server https://kubernetes.default.svc --dest-namespace $PROJECT
   #+end_src
 
   What is the state of the ArgoCD application after creating the new app?
+
+  #+begin_src
+argocd app list
+argocd app get nginx-app
+  #+end_src
 
   Can you synchronize the app?

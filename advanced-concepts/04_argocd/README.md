@@ -1,17 +1,34 @@
 
 # Table of Contents
 
-1.  [ArgoCD](#orgfb72bb4)
-    1.  [Create an ArgoCD instance in your project and try to login](#org570c5b7)
-    2.  [Deploying a simple application](#org47aec8d)
+1.  [ArgoCD](#orge33dc0c)
+    1.  [Create an ArgoCD instance in your project and try to login](#orgfb070ae)
+    2.  [Deploying a simple application](#org9a46ec0)
 
 
-<a id="orgfb72bb4"></a>
+<a id="orge33dc0c"></a>
 
 # ArgoCD
 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<a id="org570c5b7"></a>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">:exclamation: For me ArgoCD currently only works with cluster-admin privileges</td>
+</tr>
+</tbody>
+</table>
+
+ArgoCD needs project admin rights in your namespace:
+
+    oc adm policy add-cluster-role-to-user cluster-admin -z argocd-argocd-application-controller
+
+
+<a id="orgfb070ae"></a>
 
 ## Create an ArgoCD instance in your project and try to login
 
@@ -25,6 +42,12 @@ Extract the admin password and the route and login to ArgoCD
 
     export ARGOCD_PASSWORD=$(oc get secrets -o jsonpath="{.data['admin\.password']}" argocd-cluster |base64 -d)
     export ARGOCD_ROUTE=$(oc get route -o yaml argocd-server -o jsonpath={.spec.host})
+
+Execute
+
+    oc get argocd argocd -o jsonpath='{.status.phase}{"\n"}'
+
+and wait for ArgoCD to become available.
 
     argocd  login --insecure --username admin --password "$ARGOCD_PASSWORD"  "$ARGOCD_ROUTE"
 
@@ -40,14 +63,18 @@ Another method of authentication is using ArgoCD [DEX](https://www.openshift.com
 this is **not** supported by Red Hat.
 
 
-<a id="org47aec8d"></a>
+<a id="org9a46ec0"></a>
 
 ## Deploying a simple application
 
 Create an example application within ArgoCD
 
-    argocd app create example-app --project <project name> --repo <gitlab url>/openshift-examples.git --revision main --path advanced-concepts/01_argocd/application --dest-server https://kubernetes.default.svc --dest-namespace <namespace>
+    PROJECT=$(oc project -q)
+    argocd app create nginx-app --project default --repo https://github.com/rhatservices/openshift-examples.git --revision main --path advanced-concepts/04_argocd/application --dest-server https://kubernetes.default.svc --dest-namespace $PROJECT
 
 What is the state of the ArgoCD application after creating the new app?
+
+    argocd app list
+    argocd app get nginx-app
 
 Can you synchronize the app?
