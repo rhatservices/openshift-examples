@@ -109,3 +109,11 @@ oc adm policy add-role-to-user view -z default
   #+begin_src sh
 curl -v "$ROUTE"/pods/"$PROJECT"
   #+end_src
+
+* Cleanup
+
+  Execute:
+
+  #+begin_src
+../../utils/cleanup.sh
+  #+end_src

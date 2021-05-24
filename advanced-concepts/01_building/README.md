@@ -1,10 +1,11 @@
 
 # Table of Contents
 
-1.  [Building applications with OpenShift](#org7d8cb55)
+1.  [Building applications with OpenShift](#org07122c7)
+2.  [Cleanup](#orgd16322d)
 
 
-<a id="org7d8cb55"></a>
+<a id="org07122c7"></a>
 
 # Building applications with OpenShift
 
@@ -91,3 +92,12 @@ Let's try to fix this:
 Now let's try to query our HTTP endpoint again
 
     curl -v "$ROUTE"/pods/"$PROJECT"
+
+
+<a id="orgd16322d"></a>
+
+# Cleanup
+
+Execute:
+
+    ../../utils/cleanup.sh
