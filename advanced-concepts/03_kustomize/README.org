@@ -1,15 +1,34 @@
 * Kustomize basics
 
+  Run `kustomize build` and take a look at the resources that kustomize is going to build
+
+  #+begin_src sh
+kustomize build base/
+  #+end_src
+
   Apply the base application
 
   #+begin_src sh
-oc apply -k base/
+kustomize build base/ | oc apply -f -
   #+end_src
+
+  You could also run
+
+  #+begin_src
+oc apply -k build/
+  #+end_src
+
+  as oc or kubectl already bundle a version of kustomize
+
+  |-----------------------------------------------------------------------------------------------------------------------------------|
+  | :exclamation: The version bundled with oc or kubectl of kustomize is rather old. If there are any problems use kustomize directly |
+  |-----------------------------------------------------------------------------------------------------------------------------------|
 
   Use curl to test the deployed nginx instance
 
   #+begin_src sh
-curl nginx-nginx.apps.ocp.lan.stderr.at
+ROUTE=$(oc get route nginx -o jsonpath={.spec.host})
+curl -v "$ROUTE"
   #+end_src
 
 ** Overlays
@@ -31,3 +50,5 @@ kustomize build overlays/hello-conschul/
    What is the status of the nginx pods?
 
    What happens if you use curl to test the application again?
+
+* Cleanup
