@@ -1,16 +1,16 @@
 
 # Table of Contents
 
-1.  [Kustomize basics](#orgea0877b)
-    1.  [Overlays](#org1d9d02c)
-2.  [Cleanup](#org5b47fc7)
+1.  [Kustomize basics](#org4796a96)
+    1.  [Overlays](#org7c12efa)
+2.  [Cleanup](#orgb676127)
 
 
-<a id="orgea0877b"></a>
+<a id="org4796a96"></a>
 
 # Kustomize basics
 
-Run \`kustomize build\` and take a look at the resources that kustomize is going to build
+Run `kustomize build` and take a look at the resources that `kustomize` is going to build
 
     kustomize build base/
 
@@ -43,7 +43,7 @@ Use curl to test the deployed nginx instance
     curl -v "$ROUTE"
 
 
-<a id="org1d9d02c"></a>
+<a id="org7c12efa"></a>
 
 ## Overlays
 
@@ -62,6 +62,6 @@ What is the status of the nginx pods?
 What happens if you use curl to test the application again?
 
 
-<a id="org5b47fc7"></a>
+<a id="orgb676127"></a>
 
 # Cleanup
