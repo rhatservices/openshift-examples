@@ -1,3 +1,7 @@
+# Local variables:
+# after-save-hook: org-md-export-to-markdown
+# end:
+
 * Kustomize basics
 
   Run ~kustomize build~ and take a look at the resources that ~kustomize~ is going to build
@@ -42,7 +46,7 @@ kustomize build overlays/training/
    Try do create the resources with kustomize:
 
    #+begin_src sh
-kustomize build overlays/training/ | oc apply -f
+kustomize build overlays/training/ | oc apply -f -
    #+end_src
 
    What is the status of the nginx pods?

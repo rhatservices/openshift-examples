@@ -1,12 +1,12 @@
 
 # Table of Contents
 
-1.  [Kustomize basics](#org92f9f75)
-    1.  [Overlays](#org92f4746)
-2.  [Cleanup](#orgae57aa0)
+1.  [Kustomize basics](#orgfe73407)
+    1.  [Overlays](#org49bdf4c)
+2.  [Cleanup](#org9fb656c)
 
 
-<a id="org92f9f75"></a>
+<a id="orgfe73407"></a>
 
 # Kustomize basics
 
@@ -43,7 +43,7 @@ Use `curl` to test the deployed nginx instance
     curl -v "$ROUTE"
 
 
-<a id="org92f4746"></a>
+<a id="org49bdf4c"></a>
 
 ## Overlays
 
@@ -53,14 +53,14 @@ Now lets try to use the overlay
 
 Try do create the resources with kustomize:
 
-    kustomize build overlays/training/ | oc apply -f
+    kustomize build overlays/training/ | oc apply -f -
 
 What is the status of the nginx pods?
 
 What happens if you use curl to test the application again?
 
 
-<a id="orgae57aa0"></a>
+<a id="org9fb656c"></a>
 
 # Cleanup
 

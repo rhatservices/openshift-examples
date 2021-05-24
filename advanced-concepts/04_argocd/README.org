@@ -1,3 +1,7 @@
+# Local variables:
+# after-save-hook: org-md-export-to-markdown
+# end:
+
 * ArgoCD
 
 ** Create an ArgoCD instance in your project and try to login
