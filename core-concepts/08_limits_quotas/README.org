@@ -101,7 +101,15 @@ oc describe limitranges  cpu-min-max-demo-lr
 
    #+begin_src
 oc create -f deployment.yml
-oc get pod -o jsonpath='qosClass: {.status.qosClass}{"\n"}' <pod>
+oc get pod -o jsonpath='qosClass: {.items[0].status.qosClass}{"\n"}' -l app=quota-test
    #+end_src
 
    Can you create a pod/deployment that uses the Guaranteed QoS class?
+
+* Cleanup
+
+  Execute:
+
+  #+begin_src
+../../utils/cleanup.sh
+  #+end_src
