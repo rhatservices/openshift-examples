@@ -7,7 +7,7 @@
   Execute the following command:
 
   #+begin_src sh
-oc new-app quay.io/ubi8/openjdk-11~https://github.com/rhatservices/openshift-quarkus-example.git
+oc new-app registry.access.redhat.com/ubi8/openjdk-11~https://github.com/rhatservices/openshift-quarkus-example.git -l openshift-example=yes
   #+end_src
 
   Closely watch the generated output:
@@ -37,6 +37,12 @@ oc new-app quay.io/ubi8/openjdk-11~https://github.com/rhatservices/openshift-qua
     Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
      'oc expose service/openshift-quarkus-example'
     Run 'oc status' to view your app.
+  #+end_src
+
+  Let's check the overall status of our OpenShift project:
+
+  #+begin_src sh
+oc status
   #+end_src
 
   You can see the current builds with

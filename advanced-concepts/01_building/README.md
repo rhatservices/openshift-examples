@@ -1,10 +1,10 @@
 
 # Table of Contents
 
-1.  [Building applications with OpenShift](#orgcfbe3f6)
+1.  [Building applications with OpenShift](#org7d8cb55)
 
 
-<a id="orgcfbe3f6"></a>
+<a id="org7d8cb55"></a>
 
 # Building applications with OpenShift
 
@@ -14,7 +14,7 @@ for listing pod objects.
 
 Execute the following command:
 
-    oc new-app quay.io/ubi8/openjdk-11~https://github.com/rhatservices/openshift-quarkus-example.git
+    oc new-app registry.access.redhat.com/ubi8/openjdk-11~https://github.com/rhatservices/openshift-quarkus-example.git -l openshift-example=yes
 
 Closely watch the generated output:
 
@@ -42,6 +42,10 @@ Closely watch the generated output:
         Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
          'oc expose service/openshift-quarkus-example'
         Run 'oc status' to view your app.
+
+Let's check the overall status of our OpenShift project:
+
+    oc status
 
 You can see the current builds with
 
