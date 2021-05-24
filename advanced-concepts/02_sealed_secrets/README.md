@@ -1,11 +1,12 @@
 
 # Table of Contents
 
-1.  [Creating a sealed secret](#org1219b08)
-    1.  [Understanding scopes](#org4ef8dd9)
+1.  [Creating a sealed secret](#orgfaa9236)
+    1.  [Understanding scopes](#orgfa3215d)
+2.  [Cleanup](#orgb37754c)
 
 
-<a id="org1219b08"></a>
+<a id="orgfaa9236"></a>
 
 # Creating a sealed secret
 
@@ -15,25 +16,31 @@ Create a sealed secret with [plain<sub>secret.yml</sub>](plain_secret.yml) as in
 
     kubeseal <plain_secret.yml > sealed_secret.json
 
-Create the sealed secret object:
+Create and label the sealed secret object:
 
     oc create -f sealed_secret.json
+    oc label sealedsecrets.bitnami.com important openshift-example=yes
 
 List the current secrets and sealedsecrets:
 
-    oc get secrets
     oc get sealedsecrets
+    oc desribe sealedsecrets
+    oc get secrets
 
 Why do we have a standard K8s secret with the same name?
 
+Run cleanup.sh for the next example:
 
-<a id="org4ef8dd9"></a>
+    ../../utils/cleanup.sh
+
+
+<a id="orgfa3215d"></a>
 
 ## Understanding scopes
 
 What is the default scope of a seal secret?
 
-Change the namespace name in [sealed<sub>secret.json</sub>](sealed_secret.json) (<sub>.metadata.name</sub>\_ and <span class="underline">.spec.template.metadata.name</span>).
+Change the name of the sealed secret in [sealed<sub>secret.json</sub>](sealed_secret.json) (.metadata.name).
 
 Create the sealed secret with the changed namespace name
 
@@ -42,3 +49,12 @@ Create the sealed secret with the changed namespace name
 What happens to the secret?
 
 What is the state of the sealed secrets?
+
+
+<a id="orgb37754c"></a>
+
+# Cleanup
+
+Execute:
+
+    ../../utils/cleanup.sh

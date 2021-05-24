@@ -8,10 +8,11 @@
 kubeseal <plain_secret.yml > sealed_secret.json
   #+end_src
 
-  Create the sealed secret object:
+  Create and label the sealed secret object:
 
   #+begin_src sh
 oc create -f sealed_secret.json
+oc label sealedsecrets.bitnami.com important openshift-example=yes
   #+end_src
 
   List the current secrets and sealedsecrets:
@@ -34,7 +35,7 @@ oc get secrets
 
    What is the default scope of a seal secret?
 
-   Change the namespace name in [[file:sealed_secret.json][sealed_secret.json]] (_.metadata.name_ and _.spec.template.metadata.name_).
+   Change the name of the sealed secret in [[file:sealed_secret.json][sealed_secret.json]] (.metadata.name).
 
    Create the sealed secret with the changed namespace name
 
