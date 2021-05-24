@@ -19,7 +19,7 @@ spec:
     spec:
       topologySpreadConstraints:
       - maxSkew: 1
-        topologyKey: box
+        topologyKey: testdomain
         whenUnsatisfiable: DoNotSchedule
         labelSelector:
           matchLabels:

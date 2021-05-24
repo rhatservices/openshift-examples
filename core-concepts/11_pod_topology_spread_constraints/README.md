@@ -1,18 +1,18 @@
 
 # Table of Contents
 
-1.  [Pod Topology Spread Constraints](#orgcbce10b)
-    1.  [Prerequisites](#org8c34061)
-    2.  [Using <span class="underline">whenUnsatisfiable</span> <span class="underline">ScheduleAnyway</span>](#org9da4a03)
-    3.  [Using <span class="underline">whenUnsatisfiable</span> <span class="underline">DoNotSchedule</span>](#orgc60cf81)
+1.  [Pod Topology Spread Constraints](#org6e6e93b)
+    1.  [Prerequisites](#org4062413)
+    2.  [Using <span class="underline">whenUnsatisfiable</span> <span class="underline">ScheduleAnyway</span>](#orgc7e7b7e)
+    3.  [Using <span class="underline">whenUnsatisfiable</span> <span class="underline">DoNotSchedule</span>](#org4cce5b3)
 
 
-<a id="orgcbce10b"></a>
+<a id="org6e6e93b"></a>
 
 # Pod Topology Spread Constraints
 
 
-<a id="org8c34061"></a>
+<a id="org4062413"></a>
 
 ## Prerequisites
 
@@ -24,8 +24,21 @@ For example:
     oc label node worker01 testdomain=A
     oc label node worker02 testdomain=B
 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<a id="org9da4a03"></a>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">:exclamation: Labeling nodes requires cluster-admin privileges</td>
+</tr>
+</tbody>
+</table>
+
+
+<a id="orgc7e7b7e"></a>
 
 ## Using <span class="underline">whenUnsatisfiable</span> <span class="underline">ScheduleAnyway</span>
 
@@ -45,7 +58,7 @@ Remove the deployment
     oc delete deployment deployment-schedule
 
 
-<a id="orgc60cf81"></a>
+<a id="org4cce5b3"></a>
 
 ## Using <span class="underline">whenUnsatisfiable</span> <span class="underline">DoNotSchedule</span>
 

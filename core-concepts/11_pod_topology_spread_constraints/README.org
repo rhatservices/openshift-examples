@@ -1,3 +1,7 @@
+# Local variables:
+# after-save-hook: org-md-export-to-markdown
+# end:
+
 * Pod Topology Spread Constraints
 
 ** Prerequisites
@@ -11,6 +15,10 @@
 oc label node worker01 testdomain=A
 oc label node worker02 testdomain=B
    #+end_src
+
+   |----------------------------------------------------------------|
+   | :exclamation: Labeling nodes requires cluster-admin privileges |
+   |----------------------------------------------------------------|
 
 ** Using _whenUnsatisfiable_ _ScheduleAnyway_
 
