@@ -7,7 +7,7 @@
   Execute the following command:
 
   #+begin_src sh
-oc new-app quay.io/quarkus/ubi-quarkus-native-s2i:20.3-java11~https://github.com/rhatservices/openshift-quarkus-example.git
+oc new-app quay.io/ubi8/openjdk-11~https://github.com/rhatservices/openshift-quarkus-example.git
   #+end_src
 
   Closely watch the generated output:

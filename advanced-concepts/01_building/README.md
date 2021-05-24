@@ -1,10 +1,10 @@
 
 # Table of Contents
 
-1.  [Building applications with OpenShift](#org5b6133e)
+1.  [Building applications with OpenShift](#orgcfbe3f6)
 
 
-<a id="org5b6133e"></a>
+<a id="orgcfbe3f6"></a>
 
 # Building applications with OpenShift
 
@@ -14,7 +14,7 @@ for listing pod objects.
 
 Execute the following command:
 
-    oc new-app quay.io/quarkus/ubi-quarkus-native-s2i:20.3-java11~https://github.com/rhatservices/openshift-quarkus-example.git
+    oc new-app quay.io/ubi8/openjdk-11~https://github.com/rhatservices/openshift-quarkus-example.git
 
 Closely watch the generated output:
 
