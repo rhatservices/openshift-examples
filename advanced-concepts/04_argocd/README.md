@@ -1,12 +1,13 @@
 
 # Table of Contents
 
-1.  [ArgoCD](#orge33dc0c)
-    1.  [Create an ArgoCD instance in your project and try to login](#orgfb070ae)
-    2.  [Deploying a simple application](#org9a46ec0)
+1.  [ArgoCD](#org2a1e70a)
+    1.  [ArgoCD workaround](#org0a73bc3)
+    2.  [Create an ArgoCD instance in your project and try to login](#org724b5e8)
+    3.  [Deploying a simple application](#orgd722a99)
 
 
-<a id="orge33dc0c"></a>
+<a id="org2a1e70a"></a>
 
 # ArgoCD
 
@@ -23,12 +24,90 @@
 </tbody>
 </table>
 
-ArgoCD needs project admin rights in your namespace:
 
-    oc adm policy add-cluster-role-to-user cluster-admin -z argocd-argocd-application-controller
+<a id="org0a73bc3"></a>
+
+## ArgoCD workaround
+
+There is an open issue when ArgoCD is in a single namespace:
+
+<https://issues.redhat.com/browse/GITOPS-993>
+
+For a workaround deploy the following role:
+
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      name: argocd-workaround993-role
+    rules:
+    - apiGroups: ["*"]
+      resources: ["*"]
+      verbs: ["*"]
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
-<a id="orgfb070ae"></a>
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">:exclamation: Make sure you are in the correct namespace before applying the role</td>
+</tr>
+</tbody>
+</table>
+
+and the following rolebinding:
+
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: argocd-workaround993-rolebinding
+    subjects:
+    - kind: ServiceAccount
+      name: argocd-argocd-application-controller
+    roleRef:
+      kind: Role
+      name: argocd-workaround993-role
+      apiGroup: rbac.authorization.k8s.io
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">:exclamation: Make sure you are in the correct namespace before applying the rolebinding</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">:exclamation: Make sure you are using the right service account name in the rolebinding</td>
+</tr>
+</tbody>
+</table>
+
+Then
+
+-   Login to ArgoCD with the admin user (see below)
+-   Go to settings / clusters
+-   Server should be <https://kubernetes.default.svc>
+-   Make sure the namespace is set to the namespace ArgoCD is running in
+
+This should be fixed with versino 1.1.2 of the GitOps operator
+
+
+<a id="org724b5e8"></a>
 
 ## Create an ArgoCD instance in your project and try to login
 
@@ -63,7 +142,7 @@ Another method of authentication is using ArgoCD [DEX](https://www.openshift.com
 this is **not** supported by Red Hat.
 
 
-<a id="org9a46ec0"></a>
+<a id="orgd722a99"></a>
 
 ## Deploying a simple application
 

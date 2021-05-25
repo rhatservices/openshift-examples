@@ -8,11 +8,61 @@
   | :exclamation: For me ArgoCD currently only works with cluster-admin privileges |
   |--------------------------------------------------------------------------------|
 
-     ArgoCD needs project admin rights in your namespace:
+** ArgoCD workaround
 
-   #+begin_src sh
-oc adm policy add-cluster-role-to-user cluster-admin -z argocd-argocd-application-controller
+   There is an open issue when ArgoCD is in a single namespace:
+
+   [[https://issues.redhat.com/browse/GITOPS-993]]
+
+   For a workaround deploy the following role:
+
+   #+begin_src yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: argocd-workaround993-role
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
    #+end_src
+
+   |-----------------------------------------------------------------------------------|
+   | :exclamation: Make sure you are in the correct namespace before applying the role |
+   |-----------------------------------------------------------------------------------|
+
+   and the following rolebinding:
+
+   #+begin_src yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argocd-workaround993-rolebinding
+subjects:
+- kind: ServiceAccount
+  name: argocd-argocd-application-controller
+roleRef:
+  kind: Role
+  name: argocd-workaround993-role
+  apiGroup: rbac.authorization.k8s.io
+   #+end_src
+
+   |------------------------------------------------------------------------------------------|
+   | :exclamation: Make sure you are in the correct namespace before applying the rolebinding |
+   |------------------------------------------------------------------------------------------|
+
+   |-----------------------------------------------------------------------------------------|
+   | :exclamation: Make sure you are using the right service account name in the rolebinding |
+   |-----------------------------------------------------------------------------------------|
+
+   Then
+
+   - Login to ArgoCD with the admin user (see below)
+   - Go to settings / clusters
+   - Server should be https://kubernetes.default.svc
+   - Make sure the namespace is set to the namespace ArgoCD is running in
+
+   This should be fixed with versino 1.1.2 of the GitOps operator
 
 ** Create an ArgoCD instance in your project and try to login
 
