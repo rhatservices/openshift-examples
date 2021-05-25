@@ -93,7 +93,7 @@ Can you take a look at the details of the resource?
 
 Try to access the nginx application via the encrypted route
 
-    curl -kv https://$(oc get route nginx -o jsonpath={.spec.host})
+    curl -kv https://$(oc get route nginx-ssl -o jsonpath={.spec.host})
 
 
 <a id="org4262a31"></a>
