@@ -1,20 +1,20 @@
 
 # Table of Contents
 
-1.  [This is a very  simple pod](#orge0c0ebf)
-    1.  [Check your current namespace](#orgbe1897a)
-    2.  [Creating a simple pod from the command line](#org830274e)
-    3.  [Creating a simple pod via a yaml file](#org17e911d)
-    4.  [A pod running two containers](#orgf97c2bf)
-2.  [Cleanup](#org998b772)
+1.  [This is a very  simple pod](#org9d3b59d)
+    1.  [Check your current namespace](#org64387be)
+    2.  [Creating a simple pod from the command line](#orgeadc205)
+    3.  [Creating a simple pod via a yaml file](#org2a5005e)
+    4.  [A pod running two containers](#org8aa5731)
+2.  [Cleanup](#orgb0ed595)
 
 
-<a id="orge0c0ebf"></a>
+<a id="org9d3b59d"></a>
 
 # This is a very  simple pod
 
 
-<a id="orgbe1897a"></a>
+<a id="org64387be"></a>
 
 ## Check your current namespace
 
@@ -24,7 +24,7 @@ the current namespace that you are using
     oc project
 
 
-<a id="org830274e"></a>
+<a id="orgeadc205"></a>
 
 ## Creating a simple pod from the command line
 
@@ -48,7 +48,7 @@ When finished delete the pod with
     oc delete pod ubi
 
 
-<a id="org17e911d"></a>
+<a id="org2a5005e"></a>
 
 ## Creating a simple pod via a yaml file
 
@@ -63,7 +63,7 @@ run
 to the list of running pods in the current namespace.
 
 
-<a id="orgf97c2bf"></a>
+<a id="org8aa5731"></a>
 
 ## A pod running two containers
 
@@ -77,8 +77,14 @@ run
 
 to the list of running pods in the current namespace.
 
+For listing the pod logs you need to specify the container name if
+more than one container is running within the pod.
 
-<a id="org998b772"></a>
+    oc logs -c container1 advanced-pod
+    oc logs -c container2 advanced-pod
+
+
+<a id="orgb0ed595"></a>
 
 # Cleanup
 

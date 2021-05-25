@@ -73,6 +73,14 @@ oc get pods
 
    to the list of running pods in the current namespace.
 
+   For listing the pod logs you need to specify the container name if
+   more than one container is running within the pod.
+
+   #+begin_src sh
+oc logs -c container1 advanced-pod
+oc logs -c container2 advanced-pod
+   #+end_src
+
 * Cleanup
 
   Execute
