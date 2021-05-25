@@ -1,24 +1,24 @@
 
 # Table of Contents
 
-1.  [A full example for exposing an applictation](#org2e23a9c)
-    1.  [Create a configmap using index.html](#org9e03447)
-    2.  [Create a new deployment using nginx](#orgb053ecf)
-        1.  [Test the deployment with curl and oc port-forward.](#org329b987)
-    3.  [Create a service for nginx](#org0958804)
-    4.  [Expose the service](#orgc347bfd)
-    5.  [Expose the service via a SSL edge terminating route](#orgdccf22c)
-    6.  [Cleanup](#org4262a31)
+1.  [A full example for exposing an applictation](#org86ec0ac)
+    1.  [Create a configmap using index.html](#orga219d0f)
+    2.  [Create a new deployment using nginx](#orgc019bf4)
+        1.  [Test the deployment with curl and oc port-forward.](#org362e1cf)
+    3.  [Create a service for nginx](#org2b96bad)
+    4.  [Expose the service](#org157f614)
+    5.  [Expose the service via a SSL edge terminating route](#org6fa1e24)
+    6.  [Cleanup](#orgad10220)
 
 
-<a id="org2e23a9c"></a>
+<a id="org86ec0ac"></a>
 
 # A full example for exposing an applictation
 
 In this example we are going to deploy a pod running nginx.
 
 
-<a id="org9e03447"></a>
+<a id="orga219d0f"></a>
 
 ## Create a configmap using index.html
 
@@ -28,7 +28,7 @@ We also label the configmap with <span class="underline">openshift-example=true<
     oc label configmap index openshift-example=yes
 
 
-<a id="orgb053ecf"></a>
+<a id="orgc019bf4"></a>
 
 ## Create a new deployment using nginx
 
@@ -37,7 +37,7 @@ We also label the configmap with <span class="underline">openshift-example=true<
 What kind of resource are created?
 
 
-<a id="org329b987"></a>
+<a id="org362e1cf"></a>
 
 ### Test the deployment with curl and oc port-forward.
 
@@ -51,7 +51,7 @@ running (or move the command to the background).
     curl localhost:$PORT
 
 
-<a id="org0958804"></a>
+<a id="org2b96bad"></a>
 
 ## Create a service for nginx
 
@@ -64,7 +64,7 @@ Can you use curl to access the service?
 What happens if you modify the configmap and curl the service again?
 
 
-<a id="orgc347bfd"></a>
+<a id="org157f614"></a>
 
 ## Expose the service
 
@@ -79,7 +79,7 @@ Try to access the nginx application via the route
     curl -v $(oc get route nginx -o jsonpath={.spec.host})
 
 
-<a id="orgdccf22c"></a>
+<a id="org6fa1e24"></a>
 
 ## Expose the service via a SSL edge terminating route
 
@@ -93,10 +93,10 @@ Can you take a look at the details of the resource?
 
 Try to access the nginx application via the encrypted route
 
-    curl -kv https://$(oc get route nginx -o jsonpath={.spec.host})
+    curl -kv https://$(oc get route nginx-ssl -o jsonpath={.spec.host})
 
 
-<a id="org4262a31"></a>
+<a id="orgad10220"></a>
 
 ## Cleanup
 

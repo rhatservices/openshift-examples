@@ -81,7 +81,7 @@ oc get route
    Try to access the nginx application via the encrypted route
 
    #+begin_src sh
-curl -kv https://$(oc get route nginx -o jsonpath={.spec.host})
+curl -kv https://$(oc get route nginx-ssl -o jsonpath={.spec.host})
    #+end_src
 
 ** Cleanup
