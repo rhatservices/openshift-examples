@@ -1,13 +1,15 @@
 
 # Table of Contents
 
-1.  [Prerequisites](#org645b0cf)
-2.  [Working with quotas and limitranges](#org43c0b04)
-    1.  [Quotas](#org0f42719)
-    2.  [LimitRange](#org7ea6ecc)
+1.  [Prerequisites](#orgfe0abf5)
+2.  [Working with quotas and limitranges](#org271688c)
+    1.  [Quotas](#orgf1f5517)
+    2.  [LimitRange](#org920baf3)
+3.  [Deployment of a pod in the QoS class quaranteed](#orge476690)
+4.  [Cleanup](#org98650ce)
 
 
-<a id="org645b0cf"></a>
+<a id="orgfe0abf5"></a>
 
 # Prerequisites
 
@@ -19,12 +21,12 @@ Apply the <span class="underline">quote-edit-role.yml</span> role to the cluster
 cluster:admin permissions.
 
 
-<a id="org43c0b04"></a>
+<a id="org271688c"></a>
 
 # Working with quotas and limitranges
 
 
-<a id="org0f42719"></a>
+<a id="orgf1f5517"></a>
 
 ## Quotas
 
@@ -77,7 +79,7 @@ In which quality of service class is the pod running and why is it using that pa
     oc get pod -o jsonpath='qosClass: {.status.qosClass}{"\n"}' <pod>
 
 
-<a id="org7ea6ecc"></a>
+<a id="org920baf3"></a>
 
 ## LimitRange
 
@@ -92,6 +94,28 @@ Check the state of the new limitrange
 Create the deployment again and check the qosClass, what do you expect for the QoS class?
 
     oc create -f deployment.yml
-    oc get pod -o jsonpath='qosClass: {.status.qosClass}{"\n"}' <pod>
+    oc get pod -o jsonpath='qosClass: {.items[0].status.qosClass}{"\n"}' -l app=quota-test
 
 Can you create a pod/deployment that uses the Guaranteed QoS class?
+
+
+<a id="orge476690"></a>
+
+# Deployment of a pod in the QoS class quaranteed
+
+Create the following deployment
+
+    oc create -f deployment-quaranteed.yml
+
+Check the QoS class with
+
+    oc get pod -o jsonpath='qosClass: {.items[0].status.qosClass}{"\n"}' -l app=quota-test-quaranteed
+
+
+<a id="org98650ce"></a>
+
+# Cleanup
+
+Execute:
+
+    ../../utils/cleanup.sh

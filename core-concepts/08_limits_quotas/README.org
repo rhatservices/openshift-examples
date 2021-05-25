@@ -1,3 +1,7 @@
+# Local variables:
+# after-save-hook: org-md-export-to-markdown
+# end:
+
 * Prerequisites
 
   The examples in this section require that project admins are allowed
@@ -105,6 +109,20 @@ oc get pod -o jsonpath='qosClass: {.items[0].status.qosClass}{"\n"}' -l app=quot
    #+end_src
 
    Can you create a pod/deployment that uses the Guaranteed QoS class?
+
+* Deployment of a pod in the QoS class quaranteed
+
+  Create the following deployment
+
+  #+begin_src sh
+oc create -f deployment-quaranteed.yml
+  #+end_src
+
+  Check the QoS class with
+
+  #+begin_src sh
+oc get pod -o jsonpath='qosClass: {.items[0].status.qosClass}{"\n"}' -l app=quota-test-quaranteed
+  #+end_src
 
 * Cleanup
 
