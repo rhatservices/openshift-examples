@@ -22,6 +22,10 @@ oc apply -f not-so-simple-pod.yml
 
   Take a look at pod.yml and try to understand how it works
 
+  Try to change the config map:
+
+  #FIXME#
+
 * Cleanup
 
    Execute
