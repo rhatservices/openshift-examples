@@ -62,7 +62,7 @@ roleRef:
    - Server should be https://kubernetes.default.svc
    - Make sure the namespace is set to the namespace ArgoCD is running in
 
-   This should be fixed with versino 1.1.2 of the GitOps operator
+   This should be fixed with version 1.1.2 of the GitOps operator
 
 ** Create an ArgoCD instance in your project and try to login
 

@@ -1,13 +1,13 @@
 
 # Table of Contents
 
-1.  [ArgoCD](#org2a1e70a)
-    1.  [ArgoCD workaround](#org0a73bc3)
-    2.  [Create an ArgoCD instance in your project and try to login](#org724b5e8)
-    3.  [Deploying a simple application](#orgd722a99)
+1.  [ArgoCD](#org0cae580)
+    1.  [ArgoCD workaround](#orgd0cc1fe)
+    2.  [Create an ArgoCD instance in your project and try to login](#org1543bc7)
+    3.  [Deploying a simple application](#org424c2c3)
 
 
-<a id="org2a1e70a"></a>
+<a id="org0cae580"></a>
 
 # ArgoCD
 
@@ -25,7 +25,7 @@
 </table>
 
 
-<a id="org0a73bc3"></a>
+<a id="orgd0cc1fe"></a>
 
 ## ArgoCD workaround
 
@@ -104,10 +104,10 @@ Then
 -   Server should be <https://kubernetes.default.svc>
 -   Make sure the namespace is set to the namespace ArgoCD is running in
 
-This should be fixed with versino 1.1.2 of the GitOps operator
+This should be fixed with version 1.1.2 of the GitOps operator
 
 
-<a id="org724b5e8"></a>
+<a id="org1543bc7"></a>
 
 ## Create an ArgoCD instance in your project and try to login
 
@@ -142,7 +142,7 @@ Another method of authentication is using ArgoCD [DEX](https://www.openshift.com
 this is **not** supported by Red Hat.
 
 
-<a id="orgd722a99"></a>
+<a id="org424c2c3"></a>
 
 ## Deploying a simple application
 
