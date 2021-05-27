@@ -1,12 +1,12 @@
 
 # Table of Contents
 
-1.  [Creating a sealed secret](#org060b7cf)
-    1.  [Understanding scopes](#orge7a4b5b)
-2.  [Cleanup](#org6468595)
+1.  [Creating a sealed secret](#org94e7831)
+    1.  [Understanding scopes](#org3514a05)
+2.  [Cleanup](#orgffda15a)
 
 
-<a id="org060b7cf"></a>
+<a id="org94e7831"></a>
 
 # Creating a sealed secret
 
@@ -34,7 +34,7 @@ Run cleanup.sh for the next example:
     ../../utils/cleanup.sh
 
 
-<a id="orge7a4b5b"></a>
+<a id="org3514a05"></a>
 
 ## Understanding scopes
 
@@ -51,7 +51,7 @@ What happens to the secret?
 What is the state of the sealed secrets?
 
 
-<a id="org6468595"></a>
+<a id="orgffda15a"></a>
 
 # Cleanup
 
