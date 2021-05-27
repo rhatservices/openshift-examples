@@ -40,7 +40,7 @@ Run cleanup.sh for the next example:
 
 What is the default scope of a seal secret?
 
-Change the name of the sealed secret in [sealed<sub>secret.json</sub>](sealed_secret.json) (.metadata.name).
+Change the namespace name of the sealed secret in [sealed<sub>secret.json</sub>](sealed_secret.json) (.metadata.name).
 
 Create the sealed secret with the changed namespace name
 
