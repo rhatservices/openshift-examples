@@ -1,12 +1,12 @@
 
 # Table of Contents
 
-1.  [Creating a sealed secret](#orgfaa9236)
-    1.  [Understanding scopes](#orgfa3215d)
-2.  [Cleanup](#orgb37754c)
+1.  [Creating a sealed secret](#org060b7cf)
+    1.  [Understanding scopes](#orge7a4b5b)
+2.  [Cleanup](#org6468595)
 
 
-<a id="orgfaa9236"></a>
+<a id="org060b7cf"></a>
 
 # Creating a sealed secret
 
@@ -34,15 +34,15 @@ Run cleanup.sh for the next example:
     ../../utils/cleanup.sh
 
 
-<a id="orgfa3215d"></a>
+<a id="orge7a4b5b"></a>
 
 ## Understanding scopes
 
 What is the default scope of a seal secret?
 
-Change the name of the sealed secret in [sealed<sub>secret.json</sub>](sealed_secret.json) (.metadata.name).
+Change the name of the sealed secret in [sealed<sub>secret.json</sub>](sealed_secret.json) `.metadata.name` and `spec.template.metadata.name`.
 
-Create the sealed secret with the changed namespace name
+Create the sealed secret with the changed name
 
     oc create -f sealed_secret.json
 
@@ -51,7 +51,7 @@ What happens to the secret?
 What is the state of the sealed secrets?
 
 
-<a id="orgb37754c"></a>
+<a id="org6468595"></a>
 
 # Cleanup
 

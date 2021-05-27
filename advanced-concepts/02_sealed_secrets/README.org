@@ -1,3 +1,7 @@
+# Local variables:
+# after-save-hook: org-md-export-to-markdown
+# end:
+
 * Creating a sealed secret
 
   Take a look at the [[file:plain_secret.yml][plain_secret.yml]] file. Can you decode the secret?
@@ -35,9 +39,9 @@ oc get secrets
 
    What is the default scope of a seal secret?
 
-   Change the name of the sealed secret in [[file:sealed_secret.json][sealed_secret.json]] (.metadata.name).
+   Change the name of the sealed secret in [[file:sealed_secret.json][sealed_secret.json]] ~.metadata.name~ and ~spec.template.metadata.name~.
 
-   Create the sealed secret with the changed namespace name
+   Create the sealed secret with the changed name
 
    #+begin_src sh
 oc create -f sealed_secret.json
