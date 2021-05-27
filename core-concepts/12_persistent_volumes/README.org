@@ -53,3 +53,34 @@ oc create -f pvc.yaml
    #+begin_src sh
 oc create -f deployment.yml
    #+end_src
+
+** Confirming volume mounts
+
+   Store the pod name in an environment variable via
+
+   #+begin_src sh
+export POD=$(oc get pods -l app=pvc-test -o jsonpath={.items[0].metadata.name})
+   #+end_src
+
+   Open a remote shell to the pod:
+
+   #+begin_src
+oc rsh $POD
+   #+end_src
+
+   Confirm that the volume is mounted
+
+   #+begin_src sh
+sh-4.4$ df -h /mnt
+Filesystem                                     Size  Used Avail Use% Mounted on
+/dev/mapper/360002ac0000000000000007900023ff4 1020M   40M  980M   4% /mnt
+sh-4.4$
+   #+end_src
+
+* Cleanup
+
+  Execute
+
+  #+begin_src sh
+../../utils/cleanup.sh
+  #+end_src
