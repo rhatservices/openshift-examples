@@ -5,7 +5,7 @@ metadata:
 spec:
   storageClassName: "" # add available storage class here
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOnce    # could also be ReadWriteMany, talk to your admin if in doubt
   resources:
     requests:
       storage: 1Gi

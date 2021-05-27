@@ -1,0 +1,55 @@
+# Local variables:
+# after-save-hook: org-md-export-to-markdown
+# end:
+
+* Working with persistent volumes
+
+  Execute
+
+  #+begin_src sh
+oc get storageclasses
+  #+end_src
+
+  to get a list of available storage classes
+
+** creating a PersistentVolumeClaim (PVC)
+
+   Take a look at _pvc.yaml_. You have to add the StorageClass you
+   would like to use (~mystorageclass~ in the example below):
+
+   #+begin_src yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: test-pvc
+spec:
+  storageClassName: "mystorageclass" # add available storage class here
+  accessModes:
+    - ReadWriteOnce    # could also be ReadWriteMany, talk to you admin if in doubt.
+  resources:
+    requests:
+      storage: 1Gi
+  volumeMode: Filesystem
+   #+end_src
+
+   Select a StorageClas from the list of available classes.
+
+   It is also possible that a default StorageClass is defined. If this
+   is the case you can remove the ~storageClassName~ parameter and
+   OpenShift will automatically use the default StorageClass. Please
+   talk to your beloved OpenShift admin.
+
+   Create the PVC after adding the ~storageClassName~ with
+
+   #+begin_src sh
+oc create -f pvc.yaml
+   #+end_src
+
+** Using the storage class
+
+   _deployment.yml_ contains an example deployment that uses the PVC
+   create in the previous example:
+
+   #+begin_src sh
+oc create -f deployment.yml
+   #+end_src

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pvc-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pvc-test
+  template:
+    metadata:
+      labels:
+        app: pvc-test
+    spec:
+      containers:
+      - command:
+        - sh
+        - -c
+        - echo "hello world" && sleep infinity
+        image: registry.redhat.io/ubi8/ubi:8.3
+        imagePullPolicy: IfNotPresent
+        name: hello-openshift
+        volumeMounts:
+        - mountPath: /mnt
+          name: test2-pvc
+      volumes:
+      - name: test-pvc
+        persistentVolumeClaim:
+          claimName: test-pvc

@@ -89,6 +89,12 @@ oc get pod -o jsonpath='qosClass: {.status.qosClass}{"\n"}' <pod>
 
 ** LimitRange
 
+   First let's remove the deployment created in the example above
+
+   #+begin_src
+oc delete deployment -l app=quota-test
+   #+end_src
+
    Create a new limitrange
 
    #+begin_src sh
