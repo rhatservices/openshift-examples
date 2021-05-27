@@ -32,7 +32,7 @@ spec:
   volumeMode: Filesystem
    #+end_src
 
-   Select a StorageClas from the list of available classes.
+   Select a StorageClass from the list of available classes.
 
    It is also possible that a default StorageClass is defined. If this
    is the case you can remove the ~storageClassName~ parameter and

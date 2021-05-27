@@ -22,7 +22,7 @@ spec:
         name: hello-openshift
         volumeMounts:
         - mountPath: /mnt
-          name: test2-pvc
+          name: test-pvc
       volumes:
       - name: test-pvc
         persistentVolumeClaim:
