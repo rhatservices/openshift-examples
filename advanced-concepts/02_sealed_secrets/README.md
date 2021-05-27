@@ -24,7 +24,7 @@ Create and label the sealed secret object:
 List the current secrets and sealedsecrets:
 
     oc get sealedsecrets
-    oc desribe sealedsecrets
+    oc describe sealedsecrets
     oc get secrets
 
 Why do we have a standard K8s secret with the same name?
