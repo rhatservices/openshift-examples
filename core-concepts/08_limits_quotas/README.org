@@ -107,10 +107,10 @@ oc create -f limitrange.yml
 oc describe limitranges  cpu-min-max-demo-lr
    #+end_src
 
-   Create the deployment again and check the qosClass, what do you expect for the QoS class?
+   Delete the quota-test pods and check the qosClass, what do you expect for the QoS class?
 
    #+begin_src
-oc create -f deployment.yml
+oc delete pods -l app=quota-test
 oc get pod -o jsonpath='qosClass: {.items[0].status.qosClass}{"\n"}' -l app=quota-test
    #+end_src
 

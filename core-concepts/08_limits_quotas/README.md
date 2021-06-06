@@ -1,15 +1,15 @@
 
 # Table of Contents
 
-1.  [Prerequisites](#org18db7a9)
-2.  [Working with quotas and limitranges](#org20c506f)
-    1.  [Quotas](#org702775a)
-    2.  [LimitRange](#org417625c)
-3.  [Deployment of a pod in the QoS class quaranteed](#org4da9a42)
-4.  [Cleanup](#org423ae88)
+1.  [Prerequisites](#orgdb6608f)
+2.  [Working with quotas and limitranges](#org230eab7)
+    1.  [Quotas](#org0a6fde4)
+    2.  [LimitRange](#orgf706bf1)
+3.  [Deployment of a pod in the QoS class quaranteed](#org1b99162)
+4.  [Cleanup](#orgb959fbb)
 
 
-<a id="org18db7a9"></a>
+<a id="orgdb6608f"></a>
 
 # Prerequisites
 
@@ -21,12 +21,12 @@ Apply the <span class="underline">quote-edit-role.yml</span> role to the cluster
 cluster:admin permissions.
 
 
-<a id="org20c506f"></a>
+<a id="org230eab7"></a>
 
 # Working with quotas and limitranges
 
 
-<a id="org702775a"></a>
+<a id="org0a6fde4"></a>
 
 ## Quotas
 
@@ -79,7 +79,7 @@ In which quality of service class is the pod running and why is it using that pa
     oc get pod -o jsonpath='qosClass: {.status.qosClass}{"\n"}' <pod>
 
 
-<a id="org417625c"></a>
+<a id="orgf706bf1"></a>
 
 ## LimitRange
 
@@ -95,15 +95,15 @@ Check the state of the new limitrange
 
     oc describe limitranges  cpu-min-max-demo-lr
 
-Create the deployment again and check the qosClass, what do you expect for the QoS class?
+Delete the quota-test pods and check the qosClass, what do you expect for the QoS class?
 
-    oc create -f deployment.yml
+    oc delete pods -l app=quota-test
     oc get pod -o jsonpath='qosClass: {.items[0].status.qosClass}{"\n"}' -l app=quota-test
 
 Can you create a pod/deployment that uses the Guaranteed QoS class?
 
 
-<a id="org4da9a42"></a>
+<a id="org1b99162"></a>
 
 # Deployment of a pod in the QoS class quaranteed
 
@@ -116,7 +116,7 @@ Check the QoS class with
     oc get pod -o jsonpath='qosClass: {.items[0].status.qosClass}{"\n"}' -l app=quota-test-quaranteed
 
 
-<a id="org423ae88"></a>
+<a id="orgb959fbb"></a>
 
 # Cleanup
 
