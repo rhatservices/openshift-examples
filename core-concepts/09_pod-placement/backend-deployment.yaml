@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+    openshift-example: "yes"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+      openshift-example: "yes"
+  template:
+    metadata:
+      labels:
+        app: backend
+        openshift-example: "yes"
+    spec:
+      affinity:
+        podAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - frontend
+              topologyKey: kubernetes.io/hostname
+      containers:
+        - image: registry.redhat.io/ubi8/ubi:8.3
+          name: backend-pod
+          command:
+            - sh
+            - -c
+            - 'echo "this is the backend" && sleep infinity'

@@ -1,18 +1,18 @@
 * Pod affinity and anti-affinity
 
-  Deploy a sample pod
+** Use case 1: deploy frontend and backend on the same node if possible
+
+  Deploy the frontend pod
 
   #+begin_src
-oc create -f pod-a.yml
+oc apply -f frontend-deployment.yaml
   #+end_src
 
-  Check the affinity rules of pod-b and deploy the pod
+  Check the affinity rules of the backend deployment and apply it
 
   #+begin_src
-oc create -f pod-b.yml
+oc apply -f backend-deployment.yaml
   #+end_src
-
-  Should the pod be running on the same or on a different node than pod-a?
 
   Check pod placement
 
@@ -20,19 +20,17 @@ oc create -f pod-b.yml
 oc get pods -o wide
   #+end_src
 
-  Check the affinity rules of pod-c and deploy the depod
+  Is the backend running on the same node as  the frontend?
 
-  #+begin_src sh
-oc create -f pod-c.yml
-  #+end_src
+** Use case 2: clustered application which must not run on the same node
 
-  Should the pod be running on the same or on a different node than pod-a?
+   Check the affinity rules of the clusterapp-deployment.
 
-  Check pod placement
+   Deploy the cluster application:
 
-  #+begin_src sh
-oc get pods -o wide
-  #+end_src
+   #+begin_src
+oc apply -f clusterapp-deployment.yaml
+   #+end_src
 
 ** Cleanup
 

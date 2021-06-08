@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cluster
+  labels:
+    app: cluster
+    openshift-example: "yes"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cluster
+      openshift-example: "yes"
+  template:
+    metadata:
+      labels:
+        app: cluster
+        openshift-example: "yes"
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - cluster
+              topologyKey: kubernetes.io/hostname
+      containers:
+        - image: registry.redhat.io/ubi8/ubi:8.3
+          name: cluster-pod
+          command:
+            - sh
+            - -c
+            - 'echo "this is the cluster" && sleep infinity'

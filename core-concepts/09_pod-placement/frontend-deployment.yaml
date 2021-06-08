@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+    openshift-example: "yes"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+      openshift-example: "yes"
+  template:
+    metadata:
+      labels:
+        app: frontend
+        openshift-example: "yes"
+    spec:
+      containers:
+        - image: registry.redhat.io/ubi8/ubi:8.3
+          name: fronted-pod
+          command:
+            - sh
+            - -c
+            - 'echo "this is the frontend" && sleep infinity'
