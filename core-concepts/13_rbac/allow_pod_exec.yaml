@@ -1,0 +1,18 @@
+#
+# this roles allows a non-admin or non-edit user (for example with
+# view access) in a project to open a shell in a pod
+#
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: allow-podexec
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods/exec
+  verbs:
+  # CREATE is required for oc rsh
+  - create
+  # the OCP ui also requires GET for connecting
+  - get
