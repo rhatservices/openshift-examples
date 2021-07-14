@@ -22,4 +22,4 @@ spec:
   server:
     route:
       enabled: true
-  version: v2.0.2
+  # version: v2.0.2
