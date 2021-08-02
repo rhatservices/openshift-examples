@@ -25,6 +25,13 @@ Check the status of the pod disruption budget
 
     oc describe pdb example-pdb
 
+Create a second example pod with a label of environment=production
+
+     oc create -f pod2.yml
+
+Check the status of the pod disruption budget
+
+     oc describe pdb example-pdb
 
 <a id="org040bd0c"></a>
 
