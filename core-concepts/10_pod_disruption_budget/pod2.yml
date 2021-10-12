@@ -14,3 +14,4 @@ spec:
         - sh
         - -c
         - 'echo "hello world" && sleep infinity'
+    priorityClassName: high-priority
