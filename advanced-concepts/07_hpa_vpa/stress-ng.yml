@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stress-ng
+  labels:
+    app: stress-ng
+    openshift-example: "yes"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stress-ng
+  template:
+    metadata:
+      labels:
+        app: stress-ng
+        openshift-example: "yes"
+    spec:
+      containers:
+      - name: stress-ng
+        image: quay.io/tntinfra/stress-ng:latest
+        args:
+        - --cpu
+        - "1"
+        - --timeout
+        - "60"
