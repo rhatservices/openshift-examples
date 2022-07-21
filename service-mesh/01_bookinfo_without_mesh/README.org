@@ -1,0 +1,16 @@
+* Deploying the bookinfo sample application without service mesh
+
+#+begin_src bash
+oc apply -f namespace.yaml
+oc project bookinfo
+oc apply -f bookinfo.yaml
+#+end_src
+
+We can now expose the productpage service and access the service
+
+#+begin_src bash
+oc expose productpage
+oc get route
+#+end_src
+
+Try to access the application in your browser.

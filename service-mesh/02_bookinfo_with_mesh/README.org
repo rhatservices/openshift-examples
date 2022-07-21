@@ -1,0 +1,37 @@
+* Using bookinfo with service mesh
+
+#+begin_src bash
+oc delete route productpage
+oc apply -f smmr.yaml
+oc delete pods --all
+#+end_src
+
+inspect the number of containers per pod
+
+inspect
+
+#+begin_src bash
+istioctl -n istio-system proxy-config route deploy/istio-ingressgateway
+istioctl -n istio-system proxy-config listener deploy/istio-ingressgateway
+oc get route
+#+end_src
+
+create a gateway and inspect
+
+#+begin_src bash
+oc apply -f bookinfo-gateway.yaml
+istioctl -n istio-system proxy-config route deploy/istio-ingressgateway
+istioctl -n istio-system proxy-config listener deploy/istio-ingressgateway
+oc get route
+curl -v bookinfo-bookinfo-gateway-525eca1d5089dbdc-istio-system.apps.ocp.aws.tntinfra.net/productpage
+#+end_src
+
+curl returns 404
+
+create a virtualservice and inspect
+
+#+begin_src bash
+oc apply -f bookinfo-virtualservice.yaml
+istioctl -n istio-system proxy-config route deploy/istio-ingressgateway
+curl -v bookinfo-bookinfo-gateway-525eca1d5089dbdc-istio-system.apps.ocp.aws.tntinfra.net/productpage
+#+end_src
