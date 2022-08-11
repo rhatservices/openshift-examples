@@ -7,7 +7,6 @@ spec:
   - "*"
   gateways:
   - bookinfo-gateway
-  - bookinfo-gateway-hostname
   http:
   - match:
     - uri:
