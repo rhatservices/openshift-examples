@@ -1,0 +1,40 @@
+---
+apiVersion: oadp.openshift.io/v1alpha1
+kind: DataProtectionApplication
+metadata:
+  name: <insert name here>
+  namespace: openshift-adp
+spec:
+  configuration:
+    velero:
+      defaultPlugins:
+        - openshift
+        - csi
+        - aws # see the docs for available plugins
+    restic:
+      enable: true
+  backupLocations:
+    - name: default
+      velero:
+        provider: aws
+        default: true
+        objectStorage:
+          bucket: <insert bucket name here>
+          prefix: velero # this is optional, but makes sense if the bucket is shared with other applications
+        config:
+          region: eu-central-1
+          profile: "default"
+        credential:
+          key: cloud
+          name: cloud-credentials
+
+  # this is NOT required if we use CSI snapshots. if a snapshotLocations are defined
+  # this will use the provider specified here. AWS snapshorts current
+  # do not work
+  # snapshotLocations:
+  #   - name: default
+  #     velero:
+  #       provider: aws
+  #       config:
+  #         region: eu-central-1
+  #         profile: "default"

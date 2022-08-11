@@ -1,0 +1,57 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nginx-velero
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nginx
+  namespace: nginx-velero
+spec:
+  storageClassName: "gp2-csi"
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+  volumeMode: Filesystem
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-index-html
+  namespace: nginx-velero
+  labels:
+    openshift.io/cluster-monitoring: "true"
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/ubi9/ubi:latest
+          command:
+            - /bin/bash
+            - -c
+            - |
+              #!/usr/bin/env bash
+
+              cat <<EOF > /usr/share/nginx/html/index.html
+              <html>
+              <body>
+              <h1>Hello from the nginx pod</h1>
+              </body>
+              </html>
+              EOF
+          volumeMounts:
+          - mountPath: /usr/share/nginx/html
+            name: nginx-pvc
+          imagePullPolicy: Always
+          name: create-index-html
+      dnsPolicy: ClusterFirst
+      restartPolicy: Never
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: nginx-pvc
+        persistentVolumeClaim:
+          claimName: nginx
