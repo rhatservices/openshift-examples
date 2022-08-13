@@ -3,6 +3,8 @@ kind: Gateway
 metadata:
   name: bookinfo-gateway
   namespace: bookinfo
+  labels:
+    example: bookinfo
 spec:
   selector:
     istio: ingressgateway # use istio default controller
