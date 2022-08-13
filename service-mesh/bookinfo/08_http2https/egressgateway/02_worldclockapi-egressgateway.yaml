@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: worldclockapi
+  namespace: bookinfo
+  labels:
+    example: worldclockapi
+spec:
+  selector:
+    istio: egressgateway
+  servers:
+  - port:
+      number: 80
+      name: https-port-for-tls-origination
+      protocol: HTTPS # HTTPS is important here, as we redirect HTTP to HTTPS
+    hosts:
+    - worldclockapi.com
+    tls:
+      mode: ISTIO_MUTUAL
