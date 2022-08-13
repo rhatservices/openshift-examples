@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: worldclockapi
+  namespace: bookinfo
+  labels:
+    example: worldclockapi
+spec:
+  selector:
+    istio: egressgateway
+  servers:
+  - port:
+      number: 443
+      name: tls
+      protocol: TLS
+    hosts:
+    - worldclockapi.com
+    tls:
+      mode: PASSTHROUGH

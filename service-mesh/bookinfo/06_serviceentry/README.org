@@ -1,0 +1,3 @@
+* cleanup
+
+delete the serviceentry after this lab, otherwise lab 07 will fail

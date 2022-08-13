@@ -2,6 +2,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
   name: bookinfo-gateway
+  namespace: bookinfo
 spec:
   selector:
     istio: ingressgateway # use istio default controller
@@ -11,4 +12,4 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "*"
+    - "bookinfo.apps.ocp.aws.tntinfra.net"
