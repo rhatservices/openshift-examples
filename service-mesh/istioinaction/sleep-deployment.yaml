@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sleep
+  namespace: default
+  labels:
+    app: sleep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sleep
+  template:
+    metadata:
+      labels:
+        app: sleep
+    spec:
+      containers:
+        - image: registry.redhat.io/ubi9/ubi:latest
+          name: sleep-pod
+          command:
+            - sh
+            - -c
+            - 'echo "hello world" && sleep infinity'

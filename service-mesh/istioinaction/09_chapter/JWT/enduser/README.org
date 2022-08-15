@@ -1,0 +1,7 @@
+curl -kv https://webapp.apps.ocp.aws.tntinfra.net/api/catalog
+
+USER_TOKEN=$(cat user.jwt)
+curl -kv -H "Authorization: Bearer $WRONG_ISSUER" https://webapp.apps.ocp.aws.tntinfra.net/api/catalog
+
+WRONG_ISSUER=$(cat not-configured-issuer.jwt)
+curl -kv -H "Authorization: Bearer $USER_TOKEN" https://webapp.apps.ocp.aws.tntinfra.net/api/catalog

@@ -1,0 +1,14 @@
+---
+apiVersion: "security.istio.io/v1beta1"
+kind: "AuthorizationPolicy"
+metadata:
+  name: "webapp-allow-unauthenticated-view"
+  namespace: istioinaction
+spec:
+  selector:
+    matchLabels:
+      app: webapp
+  rules:
+    - to:
+      - operation:
+          methods: ["GET"]
