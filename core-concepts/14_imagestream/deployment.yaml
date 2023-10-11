@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: imagestream
+  labels:
+    app: imagestream
+spec:
+  selector:
+    matchLabels:
+      app: imagestream
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: imagestream
+    spec:
+      containers:
+        - name: imagestream
+          image: quay.io/tosmi/ubi:8
+          command:
+            - "/bin/bash"
+            - "-c"
+            - "while true; do ls /root/buildinfo/; sleep 30; done"
