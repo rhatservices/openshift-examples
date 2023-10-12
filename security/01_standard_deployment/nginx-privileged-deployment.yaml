@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-privileged
+  labels:
+    app: nginx
+    openshift-example: "yes"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+        openshift-example: "yes"
+    spec:
+      containers:
+      - name: nginx
+        image: docker.io/library/nginx:1.25.2
+        ports:
+        - containerPort: 80
+        securityContext:
+          runAsUser: 0
