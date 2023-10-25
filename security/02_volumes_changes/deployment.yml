@@ -1,3 +1,6 @@
+
+#Warning: would violate PodSecurity "restricted:v1.24": allowPrivilegeEscalation != false (container "hello-openshift" must set securityContext.allowPrivilegeEscalation=false), unrestricted capabilities (container "hello-openshift" must set securityContext.capabilities.drop=["ALL"])
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -23,10 +26,19 @@ spec:
         image: registry.redhat.io/ubi8/ubi:8.3
         imagePullPolicy: IfNotPresent
         name: hello-openshift
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+          runAsRoot: false
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
         volumeMounts:
         - mountPath: /mnt
           name: test-pvc
       volumes:
       - name: test-pvc
         persistentVolumeClaim:
-          claimName: test-pvc
+          claimName: good-pvc
