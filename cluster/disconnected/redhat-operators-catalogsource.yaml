@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  labels:
+    app.kubernetes.io/instance: catalogsources-ocp-entw-01
+  name: redhat-operators
+  namespace: openshift-marketplace
+spec:
+  image: mirror.registry:443/redhat/redhat-operator-index:v4.12
+  sourceType: grpc

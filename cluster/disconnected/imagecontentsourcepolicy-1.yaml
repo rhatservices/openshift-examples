@@ -1,0 +1,23 @@
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  labels:
+    app.kubernetes.io/instance: image-content-source-custom
+  name: custom
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - mirror.registry:443
+    source: quay.io
+  - mirrors:
+    - mirror.registry:443
+    source: registry.connect.redhat.com
+  - mirrors:
+    - mirror.registry:443
+    source: registry.redhat.io
+  - mirrors:
+    - mirror.registry:443
+    source: icr.io
+  - mirrors:
+    - mirror.registry:443
+    source: gcr.io
