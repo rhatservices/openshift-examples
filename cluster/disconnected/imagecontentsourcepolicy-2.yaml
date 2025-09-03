@@ -1,0 +1,12 @@
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  annotations:
+  labels:
+    app.kubernetes.io/instance: image-content-source-clustername
+  name: image-policy-0
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - mirror.registry:443/openshift-release-dev/ocp-release
+    source: quay.io/openshift-release-dev/ocp-release
