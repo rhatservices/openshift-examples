@@ -20,7 +20,7 @@ spec:
         - sh
         - -c
         - echo "hello world" && sleep infinity
-        image: registry.redhat.io/ubi8/ubi:8.3
+        image: registry.redhat.io/ubi10/ubi:10.0
         imagePullPolicy: IfNotPresent
         name: hello-openshift
         volumeMounts:
