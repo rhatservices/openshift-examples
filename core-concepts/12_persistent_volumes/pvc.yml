@@ -5,7 +5,10 @@ metadata:
   labels:
     openshift-example: "yes"
 spec:
-  storageClassName: "" # add available storage class here
+  # storageClassName is commented out
+  # this means the default storage class will be selected
+  #
+  # storageClassName: "" # add available storage class here
   accessModes:
     - ReadWriteOnce    # could also be ReadWriteMany, talk to your admin if in doubt
   resources:
